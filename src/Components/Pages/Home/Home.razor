@@ -2,8 +2,6 @@
 
 <section>
     @* First Section *@
-    <MudText class="text-[var(--mud-palette-text-background)]">Hello</MudText>
-    <p class="!text-2xl">Hello</p>
 </section>
 
 <section>
@@ -14,14 +12,311 @@
     @* Third Section *@
 </section>
 
-<section>
+<section class="container p-6 m-auto flex flex-col items-center justify-center">
     @* Fourth Section *@
+    <div class="flex items-center justify-end w-[1024px]">
+        <ul
+            class="grid grid-cols-6 w-full h-28 place-content-center lg:h-[28rem] lg:w-[13rem] lg:grid-cols-1 lg:grid-rows-6 text-base">
+            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1 ">
+                <div>
+                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                        <span class="">
+                            2024 | Q1
+                        </span>
+                    </div>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
+                </div>
+            </div>
+            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
+                <div>
+                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                        <span class="">
+                            2024 | Q2
+                        </span>
+                    </div>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
+                </div>
+            </div>
+            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
+                <div>
+                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                        <span class="">
+                            2024 | Q3
+                        </span>
+                    </div>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
+                </div>
+            </div>
+            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
+                <div>
+                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                        <span class="">
+                            2024 | Q4
+                        </span>
+                    </div>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
+                </div>
+            </div>
+            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
+                <div>
+                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                        <span class="">
+                            2025 | Q1
+                        </span>
+                    </div>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
+                </div>
+            </div>
+            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
+                <div>
+                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                        <span class="">
+                            2025 | Q2
+                        </span>
+                    </div>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
+                </div>
+            </div>
+        </ul>
+        <MudCard
+            Class="relative w-full h-[24rem] mt-12 md:h-[28rem] lg:mt-0 lg:mx-0 lg:w-[39rem] lg:ml-4 !bg-[#0F3CAE] !rounded-[1rem]">
+            <MudCardContent Style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');"
+                Class="flex flex-col items-start gap-4 h-full w-full bg-cover bg-left-bottom bg-no-repeat md:bg-[size:90%_93%] !pb-0 pt-16 px-8 md:gap-8 md:!pt-20 md:!pl-12 md:!pr-20 !text-white">
+                <MudImage Src="images/icons/aegis-check-mark.png" />
+                <MudText Class="text-4xl font-semibold md:text-5xl">Heading</MudText>
+                <MudText Class="text-base font-light md:text-lg">04/10/2025</MudText>
+                <MudText Class="text-base font-light md:text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.
+                    Pellentesque iaculis fringilla ligula, id finibus tortor.</MudText>
+            </MudCardContent>
+        </MudCard>
+    </div>
+    <MudPaper Elevation="5" Class="w-full mt-16 max-w-screen-xl !bg-white !rounded-2xl">
+        <div class="!rounded-2xl py-12">
+            <MudText Class="w-full text-center text-4xl font-semibold md:mb-12 md:text-5xl !text-[#35383B]">
+                Tokenomics
+            </MudText>
+            <div class="flex items-center">
+                <MudChart ChartType="ChartType.Pie" InputData="[77, 25, 20, 5]" Width="544px" Height="512px"
+                    Class="ml-auto [&_.mud-chart-legend]:hidden" />
+                <ul class="w-[calc(90%-5vw)] mx-auto md:w-[90%] lg:px-0 lg:w-[calc(32%)] lg:mx-[6%] text-black">
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
+                        <div class="text-base flex items-center">
+                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
+                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                                Team
+                            </h6>
+                        </div>
+                        <p className="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                        <span className="text-sm w-24 ml-4 font-light md:text-base">
+                            10,000,000
+                        </span>
+                    </li>
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
+                        <div class="text-base flex items-center">
+                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
+                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                                Team
+                            </h6>
+                        </div>
+                        <p className="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                        <span className="text-sm w-24 ml-4 font-light md:text-base">
+                            10,000,000
+                        </span>
+                    </li>
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
+                        <div class="text-base flex items-center">
+                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
+                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                                Team
+                            </h6>
+                        </div>
+                        <p className="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                        <span className="text-sm w-24 ml-4 font-light md:text-base">
+                            10,000,000
+                        </span>
+                    </li>
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
+                        <div class="text-base flex items-center">
+                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
+                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                                Team
+                            </h6>
+                        </div>
+                        <p className="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                        <span className="text-sm w-24 ml-4 font-light md:text-base">
+                            10,000,000
+                        </span>
+                    </li>
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
+                        <div class="text-base flex items-center">
+                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
+                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                                Team
+                            </h6>
+                        </div>
+                        <p className="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                        <span className="text-sm w-24 ml-4 font-light md:text-base">
+                            10,000,000
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </MudPaper>
 </section>
 
-<section>
+<section class="container max-w-[1280px] px-[96px] m-auto">
     @* Fifth Section *@
+    <div class="flex flex-wrap justify-between items-center">
+        <MudText Class="w-full my-28 text-center text-4xl font-semibold md:text-5xl">
+            Team
+        </MudText>
+        @for (int i = 0; i < 8; i++)
+        {
+            <div class="w-full flex flex-col items-center gap-4 md:w-1/2 lg:w-1/4 mb-24">
+                <div class="h-28 w-28 rounded-full bg-white" />
+                <MudText Class="text-2xl font-medium">Name Lastname</MudText>
+                <MudText class="font-extralight">Job Title</MudText>
+                <MudIcon Icon="@Icons.Custom.Brands.X" Class="h-[1.25em] w-[1.25em] p-[.35em] rounded-full bg-[#3C92F9]" />
+            </div>
+        }
+    </div>
+    <MudPaper Elevation="5" Class="rounded-2xl bg-white px-[min(7.5vw,96px)] py-16">
+        <MudText Class="text-center text-4xl font-semibold mb-16 md:text-5xl !text-[#323E59]">FAQs</MudText>
+        <MudExpansionPanels>
+            <MudExpansionPanel HideIcon="true"
+                Class="bg-white text-[#323E59] !border-b !border-[#D9D9D9] mt-8 shadow-none [&_.mud-expand-panel-header]:p-0">
+                <TitleContent>
+                    <div class="flex items-center justify-between mb-8 gap-x-4">
+                        <MudText class="text-xl font-semibold md:text-2xl">What is Sada?</MudText>
+                        <MudImage Src="images/icons/faq-minus.png" Alt="faq icon" class="h-7 w-7 object-contain" />
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis fringilla ligula, id
+                    finibus tortor. Ut in neque a lectus venenatis molestie. Suspendisse ullamcorper sapien turpis, ac
+                    dapibus mi maximus nec.
+                </ChildContent>
+            </MudExpansionPanel>
+            <MudExpansionPanel HideIcon="true"
+                Class="bg-white text-[#323E59] !border-b !border-[#D9D9D9] mt-8 shadow-none [&_.mud-expand-panel-header]:p-0">
+                <TitleContent>
+                    <div class="flex items-center justify-between mb-8 gap-x-4">
+                        <MudText class="text-xl font-semibold md:text-2xl">How does automated staking works?</MudText>
+                        <MudImage Src="images/icons/faq-minus.png" Alt="faq icon" class="h-7 w-7 object-contain" />
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis fringilla ligula, id
+                    finibus tortor. Ut in neque a lectus venenatis molestie. Suspendisse ullamcorper sapien turpis, ac
+                    dapibus mi maximus nec.
+                </ChildContent>
+            </MudExpansionPanel>
+            <MudExpansionPanel HideIcon="true"
+                Class="bg-white text-[#323E59] !border-b !border-[#D9D9D9] mt-8 shadow-none [&_.mud-expand-panel-header]:p-0">
+                <TitleContent>
+                    <div class="flex items-center justify-between mb-8 gap-x-4">
+                        <MudText class="text-xl font-semibold md:text-2xl">How does AEGIS improve the Cardano network?
+                        </MudText>
+                        <MudImage Src="images/icons/faq-minus.png" Alt="faq icon" class="h-7 w-7 object-contain" />
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis fringilla ligula, id
+                    finibus tortor. Ut in neque a lectus venenatis molestie. Suspendisse ullamcorper sapien turpis, ac
+                    dapibus mi maximus nec.
+                </ChildContent>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </MudPaper>
+
 </section>
 
-<section>
+<footer class="bg-[#000F33]">
     @* Footer Section *@
-</section>
+    <article
+        class="container max-w-[1088px] m-auto flex flex-wrap !justify-center gap-9 py-12 md:!justify-between md:items-start">
+        <div class="w-[60%] flex flex-col items-center gap-y-6 md:w-1/5">
+            <MudImage Src="/images/icons/aegis-light-logo.png" Alt="aegis icon" />
+            <div class="flex gap-3 w-full items-center justify-center">
+                <MudImage Src="/images/icons/facebook-icon.png" Alt="facebook icon" Class="h-12 w-12" />
+                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-[#182749]">
+                    <MudIcon Icon="@Icons.Custom.Brands.X" class="w-4 h-4" />
+                </div>
+                <MudImage Src="/images/icons/discord-icon.png" Alt="discord icon" class="h-12 w-12" />
+            </div>
+        </div>
+        <ul class="w-[35%] flex flex-col gap-2 md:pl-[5%] md:w-1/5">
+            <MudText class="flex justify-normal text-lg font-medium md:text-xl">
+                PRODUCT
+            </MudText>
+            <li class="flex gap-2 items-center justify-normal">
+                <span class="text-base font-light md:text-lg">Features</span>
+                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
+            </li>
+            <li class="flex gap-2 items-center justify-normal">
+                <span class="text-base font-light md:text-lg md:block md:w-16 xl:inline xl:w-auto">
+                    How It Works
+                </span>
+                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
+            </li>
+        </ul>
+        <ul class="w-[35%] flex flex-col gap-2 md:pl-[5%] md:w-1/5">
+            <MudText class="flex justify-normal text-lg font-medium md:text-xl">
+                COMPANY
+            </MudText>
+            <li class="flex gap-2 items-center justify-normal">
+                <span class="text-base font-light md:text-lg">About Us</span>
+                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
+            </li>
+        </ul>
+        <div class="relative w-[150px] h-[50] p-[2px] rounded-full overflow-hidden">
+            <MudButton Class="absolute w-full">
+                <span class="text-base font-medium">OPEN APP</span>
+            </MudButton>
+        </div>
+    </article>
+    <div class="border-t bg-white opacity-30" />
+    <article
+        class="container m-auto max-w-[1280px] w-full px-[min(7.5vw,96px)] flex justify-between gap-12 py-12 opacity-30">
+        <span className="text-sm md:text-base">AEGIS, 2024</span>
+        <div class="flex gap-9 items-center">
+            <span className="!flex-1 text-right text-sm md:text-base">
+                Terms & Conditions
+            </span>
+            <span className="text-sm md:text-base">Privacy Policy</span>
+        </div>
+    </article>
+</footer>
