@@ -1,15 +1,129 @@
-﻿@page "/"
+﻿@using Aegis.Web.Components.Common;
+@page "/"
 
-<section>
-    @* First Section *@
+@* First Section *@
+<MudPaper class="relative h-auto xl:h-screen 2xl:h-auto bg-[var(--mud-palette-primary)]">
+    <Header />
+    <article
+        class="relative mx-auto z-20 text-center pb-32 mt-20 max-w-screen-xl lg:pb-72 lg:mt-40 2xl:h-auto 2xl:pt-0">
+        <MudText class="h1 font-semibold text-4xl text-[var(--mud-palette-white)] xl:text-[4rem] xl:leading-[4rem]">
+            Protecting Value, <br />
+            Maximizing Rewards
+        </MudText>
+        <MudText class="text-base text-[var(--mud-palette-white)] font-light my-8 sm:my-12 md:text-lg 2xl:my-10">
+            Join AEGIS and safeguard your assets with <br />
+            secure, Cardano-powered staking solutions.
+        </MudText>
+        <MudPaper class="w-[14rem] mx-auto p-[2px] rounded-[50px] bg-red-500">
+            <MudButton Variant="Variant.Filled" class="w-full rounded-[50px] bg-[var(--mud-palette-white)]">
+                <MudText class="text-base font-bold text-[var(--mud-palette-black)]">START STAKING NOW</MudText>
+            </MudButton>
+        </MudPaper>
+    </article>
+    <div style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');" />
+</MudPaper>
+<div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/first-section-arc-dark.svg');" : "background-image: url('/images/backgrounds/first-section-arc-light.svg');"))"
+    class="relative bg-[size:100%_100%] bg-center bg-no-repeat h-56 md:h-72 2xl:h-48" />
+
+@* Second Section *@
+<section
+    class="mx-auto grid grid-cols-1 place-items-center mt-20 w-full gap-10 max-w-screen-xl sm:grid-cols-2 lg:gap-6 lg:place-items-end xl:gap-6 lg:grid-cols-3">
+    <article
+        class="w-3/4 text-center max-w-screen-xl place-self-auto sm:w-1/2 sm:mb-0 sm:col-span-2 lg:col-span-1 lg:text-left lg:w-full lg:h-[22rem] lg:place-self-auto">
+        <MudText class="text-4xl text-[var(--mud-palette-text-primary)] font-semibold lg:text-5xl">Key Benefits
+        </MudText>
+        <MudText class="mt-5 text-base text-center text-[var(--mud-palette-text-primary)] lg:text-left lg:text-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+            iaculis fringilla ligula, id finibus tortor.
+        </MudText>
+        <MudText class="flex items-center gap-2 mt-4 lg:justify-normal">
+            <MudText class="text-xs text-[var(--mud-palette-text-primary)] font-semibold lg:text-base">LEARN MORE
+            </MudText>
+            <img src="/images/icons/arrow-up-right-colored.png" class="h-7 w-7 object-contain" alt="arrow icon" />
+        </MudText>
+    </article>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/safer-staking.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer
+                Staking</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/automated-staking.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Automated
+                Staking</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/cardano-health.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Cardano Health
+                Network</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/unlock-liquidity.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Unlock Liquidity
+            </MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/sada-icon-small.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">sADA
+                (shielded ADA)</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)]">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
 </section>
 
+@* Third Section *@
 <section>
-    @* Second Section *@
-</section>
-
-<section>
-    @* Third Section *@
+    <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-top-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-top-arc-light.svg');"))"
+        class="relative mt-20 w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-52 md-72 lg:h-48" />
+    <div class="pt-16 pb-36 bg-[var(--mud-palette-primary-darken)]">
+        Hello
+    </div>
+    <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-bottom-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-bottom-arc-light.svg');"))"
+        class="relative w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-72 overflow-hidden lg:h-80">
+        <article
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center max-w-lg w-[70%] lg:top-1/2 lg:-translate-y-1/2">
+            <MudText className="text-4xl text-[var(--mud-palette-text-primary)] font-semibold md:text-5xl">Roadmap
+            </MudText>
+            <MudText className="text-base text-[var(--mud-palette-text-primary)] font-light mt-8 md:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque iaculis fringilla ligula, id finibus tortor.
+            </MudText>
+        </article>
+    </div>
 </section>
 
 <section>
@@ -23,3 +137,9 @@
 <section>
     @* Footer Section *@
 </section>
+
+
+@code {
+    [CascadingParameter] public bool IsDarkMode { get; set; }
+
+}

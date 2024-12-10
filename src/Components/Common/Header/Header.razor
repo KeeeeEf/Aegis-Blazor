@@ -1,0 +1,25 @@
+@inherits LayoutComponentBase
+@namespace Aegis.Web.Components.Common
+@using Aegis.Web.Components.Layout
+
+<header class="mx-auto relative z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
+    <img src="@((IsDarkMode ? "/images/icons/aegis-dark-logo.png" : "/images/icons/aegis-light-logo.png"))"
+        alt="aegis logo" className="h-full" />
+    <ul class="hidden gap-12 items-center lg:flex">
+        <MudLink>HOME</MudLink>
+        <MudLink>ABOUT US</MudLink>
+        <MudLink>HOW IT WORKS</MudLink>
+    </ul>
+    <div
+        class="@((IsDarkMode ? "before:bg-[conic-gradient(from 90deg, #79FAF3 10%, #FFFFFF 20%, transparent 50%)]" :
+        "before:bg-[conic-gradient(from 90deg, #79FAF3 10%, #0F3CAE 20%, transparent 50%)]")) relative w-[150px] h-[50px] p-[10px] rounded-full overflow-hidden hidden before:absolute before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] before:animate-[spin_3s_linear_infinite] lg:block">
+        <MudButton class="absolute w-full rounded-[70px]" Color="Color.Primary">
+            <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
+        </MudButton>
+    </div>
+</header>
+
+@code {
+    [CascadingParameter] public bool IsDarkMode { get; set; }
+
+}

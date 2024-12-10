@@ -1,35 +1,41 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["../**/*.{razor,cs}"],
   theme: {
     extend: {
-      screens: {
-        'xs': '375px',
-        'sm': '500px',
-        'md': '640px',
-        'lg': '768px',
-        'xl': '1024px',
-        '2xl': '1280px',
-        '3xl': '1440px',
-        '4xl': '1536px'
+      animation: {
+        "scale-shield-first": "scaleShieldFirst 15s ease-in-out infinite",
+        "scale-shield-second": "scaleShieldSecond 15s ease-in-out infinite",
+        "scale-shield-third": "scaleShieldThird 15s ease-in-out infinite",
       },
       keyframes: {
-        wiggleFrames: {
-          '0%': { transform: 'rotate(0deg)' },
-          '25%': { transform: 'rotate(-5deg)' },
-          '50%': { transform: 'rotate(0deg)' },
-          '75%': { transform: 'rotate(5deg)' },
-          '100%': { transform: 'rotate(0deg)' },
+        scaleShieldFirst: {
+          "0%, 100%": {
+            backgroundSize: "40% 40%",
+          },
+          "50%": {
+            backgroundSize: "30% 30%",
+          },
         },
-        rotateBorder: {
-          to: { '--border-angle': '360deg' },
-        }
+        scaleShieldSecond: {
+          "0%, 100%": {
+            backgroundSize: "70% 70%",
+          },
+          "50%": {
+            backgroundSize: "50% 50%",
+          },
+        },
+        scaleShieldThird: {
+          "0%, 100%": {
+            backgroundSize: "100% 100%",
+          },
+          "50%": {
+            backgroundSize: "75% 75%",
+          },
+        },
       },
-      animation: {
-        'wiggle': 'wiggleFrames 0.25s ease-in-out infinite',
-        'rotate-border': 'rotateBorder 3s linear infinite',
-      }
     },
   },
   plugins: [],
-}
+};
