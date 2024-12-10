@@ -1,0 +1,26 @@
+{
+  "name": "wwwroot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:styles": "tailwindcss -i ./styles/app.css -o ./dist/app.bundle.css --watch",
+    "build:styles": "tailwindcss -i ./styles/app.css -o ./dist/app.bundle.css --minify",
+    "watch:scripts": "esbuild scripts/app.ts --bundle --outfile=dist/app.bundle.js --watch",
+    "build:scripts": "esbuild scripts/app.ts --bundle --outfile=dist/app.bundle.js",
+    "watch": "concurrently \"pnpm run watch:styles\" \"pnpm run watch:scripts\"",
+    "build": "concurrently \"pnpm run build:styles\" \"pnpm run build:scripts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "devDependencies": {
+    "@jridgewell/gen-mapping": "^0.3.7",
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.24.0",
+    "sucrase": "^3.35.0",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2"
+  }
+}
