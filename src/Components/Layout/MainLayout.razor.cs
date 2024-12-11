@@ -29,7 +29,7 @@ public partial class MainLayout
             Primary = "#0B1A3D",
             PrimaryDarken = "#0033AD",
             SecondaryLighten = "#FFFFFF",
-            Secondary = "#3C92F9",
+            Secondary = "#3C9FFF",
             SecondaryDarken = "#0042E1",
             TextPrimary = "#FFFFFF",
             GrayDark = "#323E59",

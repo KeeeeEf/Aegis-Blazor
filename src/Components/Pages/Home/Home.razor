@@ -14,13 +14,13 @@
             Join AEGIS and safeguard your assets with <br />
             secure, Cardano-powered staking solutions.
         </MudText>
-        <MudPaper class="w-[14rem] mx-auto p-[2px] rounded-[50px]
+        <div class="w-[14rem] mx-auto p-[2px] rounded-[50px]
         bg-gradient-to-r from-[var(--mud-palette-info-lighten)] to-[var(--mud-palette-info)]
         ">
             <MudButton Variant="Variant.Filled" class="w-full rounded-[50px] bg-[var(--mud-palette-white)]">
                 <MudText class="text-base font-bold text-[var(--mud-palette-black)]">START STAKING NOW</MudText>
             </MudButton>
-        </MudPaper>
+        </div>
     </article>
     <div style="background-image: url('/images/backgrounds/first-section-layer-1.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-first 5s ease-in-out infinite 
         opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full 
@@ -120,7 +120,55 @@
     <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-top-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-top-arc-light.svg');"))"
         class="relative mt-20 w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-52 md-72 lg:h-48" />
     <div class="pt-16 pb-36 bg-[var(--mud-palette-primary-darken)]">
-        Hello
+        <div class="relative flex flex-col flex-nowrap overflow-x-hidden lg:ml-[max(calc(50vw-544px),96px)] ">
+            <article
+                class="flex flex-col items-center flex-shrink-0 text-center align-top w-full whitespace-normal mb-6 sm:w-[25rem] sm:px-12 md:px-0 lg:block lg:mb-0 lg:text-left lg:absolute lg:h-[35rem] lg:w-[28rem]">
+                <MudText class="text-4xl font-semibold md:text-5xl">
+                    How It Works
+                </MudText>
+                <MudText class="text-base font-light mt-12 md:text-lg">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Pellentesque iaculis fringilla ligula, id finibus tortor.
+                </MudText>
+                <div class="flex items-center gap-2 mt-12">
+                    <MudText class="text-xs font-semibold lg:text-base">
+                        LEARN MORE
+                    </MudText>
+                    <img src="/images/icons/arrow-up-right-colored.png" class="h-7 w-7 object-contain"
+                        alt="brightness icon" />
+                </div>
+            </article>
+            <div 
+                style="@((isTransitioning == true ? "translateX(-27rem)" : "translateX(0)") )"
+                class="flex flex-nowrap gap-x-[calc(50vw-12rem)] sm:gap-x-[calc(50vw-13.5rem)] lg:gap-x-0 sm:translate-x-[calc((50vw + 13.5rem) * -{count})] lg:translate-x-[-{count * 27}rem]">
+                @foreach(var card in carousel.Cards){
+                    <MudCard class="flex flex-col items-start flex-shrink-0 h-[35rem] w-[24rem] rounded-2xl p-8 pr-12 gap-y-4  bg-[var(--mud-palette-secondary)] sm:w-[27rem]">
+                        <MudCardContent>
+                            <img src="@card.Image" alt="@card.Name" />
+                            <MudText class="text-2xl font-semibold">@card.Name</MudText>
+                            <MudText class="text-base leading-7">@card.Description</MudText>
+                        </MudCardContent>
+                    </MudCard>
+                }
+            </div>
+            <ul class="flex gap-x-8 mt-8 justify-center lg:ml-[28rem] lg:w-[calc(27rem*0.92)]">
+                <button class="h-8 w-8 rounded-full @((0 == newIDX) ? "bg-red-500" : "bg-blue-500")"
+                        @onclick="() => CarouselTransition(0, newIDX)"
+                         />
+                <button class="h-8 w-8 rounded-full @((1 == newIDX) ? "bg-red-500" : "bg-blue-500")"
+                        @onclick="() => CarouselTransition(1, newIDX)"
+                         />
+                <button class="h-8 w-8 rounded-full @((2 == newIDX) ? "bg-red-500" : "bg-blue-500")"
+                        @onclick="() => CarouselTransition(2, newIDX)"
+                         />
+                <button class="h-8 w-8 rounded-full @((3 == newIDX) ? "bg-red-500" : "bg-blue-500")"
+                        @onclick="() => CarouselTransition(3, newIDX)"
+                         />
+                <button class="h-8 w-8 rounded-full @((4 == newIDX) ? "bg-red-500" : "bg-blue-500")"
+                        @onclick="() => CarouselTransition(4, newIDX)"
+                         />
+            </ul>
+        </div>
     </div>
     <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-bottom-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-bottom-arc-light.svg');"))"
         class="relative w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-72 overflow-hidden lg:h-80">
@@ -136,20 +184,66 @@
     </div>
 </section>
 
-<section>
-    @* Fourth Section *@
-</section>
-
-<section>
-    @* Fifth Section *@
-</section>
-
-<section>
-    @* Footer Section *@
-</section>
-
 
 @code {
     [CascadingParameter] public bool IsDarkMode { get; set; }
+
+    public int newIDX = 0;
+    public int count = 0;
+    public bool isCooldown = false;
+    public bool isTransitioning = false;
+
+    public async Task CarouselTransition(int oldIDX, int newIDX) {
+        
+        if (isCooldown) return;
+        count = (newIDX - oldIDX + 5) % 5;
+
+        this.newIDX = oldIDX; 
+        
+        // Append Carousel based on count
+        if (count != 0) 
+        {
+            var cardsToAppend = carousel.Cards.Take(count).ToList();
+            carousel.Cards.AddRange(cardsToAppend);
+        }
+
+        isTransitioning = true;
+        isCooldown = true;
+    
+        await Task.Delay(300);
+
+        isTransitioning = false;
+        isCooldown = false;
+
+        carousel.Cards = carousel.Cards.Skip(count).ToList();
+
+        StateHasChanged();
+    }
+
+    public class CarouselCardDetails
+    {
+        public string? Image { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+    }
+
+    public class Carousel
+    {
+        public List<CarouselCardDetails> Cards { get; set; } = new List<CarouselCardDetails>();
+
+        public Carousel()
+        {
+            Cards = new List<CarouselCardDetails>
+            {
+                new CarouselCardDetails { Image = "", Name = "Stake Your ADA and Receive sADA", Description = "When you stake your ADA through AEGIS, you'll receive SADA (shielded ADA) tokens in return." },
+                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." },
+                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." },
+                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." },
+                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." }
+            };
+        }
+    }
+
+    public Carousel carousel = new Carousel();
 
 }
