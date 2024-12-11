@@ -1,205 +1,227 @@
-﻿@page "/"
+﻿@using Aegis.Web.Components.Common
+@page "/"
 
-<section>
-    @* First Section *@
+@namespace Aegis.Web.Components.Pages
+
+@* First Section *@
+<div class="relative h-auto xl:h-screen 2xl:h-auto bg-[var(--mud-palette-primary)]">
+    <Header />
+    <article
+        class="relative container z-20 text-center pb-32 mt-20 max-w-screen-xl lg:pb-72 lg:mt-40 2xl:h-auto 2xl:pt-0">
+        <MudText class="h1 font-semibold text-4xl text-[var(--mud-palette-white)] xl:text-[4rem] xl:leading-[4rem]">
+            Protecting Value, <br />
+            Maximizing Rewards
+        </MudText>
+        <MudText class="text-base text-[var(--mud-palette-white)] font-light my-8 sm:my-12 md:text-lg 2xl:my-10">
+            Join AEGIS and safeguard your assets with <br />
+            secure, Cardano-powered staking solutions.
+        </MudText>
+        <MudPaper class="w-[14rem] mx-auto p-[2px] rounded-[50px]
+        bg-gradient-to-r from-[var(--mud-palette-info-lighten)] to-[var(--mud-palette-info)]
+        ">
+            <MudButton Variant="Variant.Filled" class="w-full rounded-[50px] bg-[var(--mud-palette-white)]">
+                <MudText class="text-base font-bold text-[var(--mud-palette-black)]">START STAKING NOW</MudText>
+            </MudButton>
+        </MudPaper>
+    </article>
+    <div style="background-image: url('/images/backgrounds/first-section-layer-1.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-first 5s ease-in-out infinite 
+        opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full 
+        sm:top-32 sm:left-0 sm:-translate-x-0 sm:-translate-y-0" />
+    <div style="background-image: url('/images/backgrounds/first-section-layer-2.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-second 5s ease-in-out infinite
+        opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full
+        sm:top-32 sm:left-0 sm:-translate-x-0 sm:-translate-y-0" />
+    <div style=" background-image: url('/images/backgrounds/first-section-layer-3.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-third 5s ease-in-out infinite 
+        opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full 
+        sm:top-32 sm:left-0 sm:-translate-x-0 sm:-translate-y-0" />
+</div>
+<div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/first-section-arc-dark.svg');" : "background-image: url('/images/backgrounds/first-section-arc-light.svg');"))"
+    class="relative bg-[size:100%_100%] bg-center bg-no-repeat h-56 md:h-72 2xl:h-48" />
+
+@* Second Section *@
+<section
+    class="container grid grid-cols-1 place-items-center mt-20 w-full gap-10 max-w-screen-xl sm:grid-cols-2 lg:gap-6 lg:place-items-end xl:gap-6 lg:grid-cols-3">
+    <article
+        class="w-3/4 text-center max-w-screen-xl place-self-auto sm:w-1/2 sm:mb-0 sm:col-span-2 lg:col-span-1 lg:text-left lg:w-full lg:h-[22rem] lg:place-self-auto">
+        <MudText class="text-4xl text-[var(--mud-palette-text-primary)] font-semibold lg:text-5xl">Key Benefits
+        </MudText>
+        <MudText class="mt-5 text-base text-center text-[var(--mud-palette-text-primary)] lg:text-left lg:text-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+            iaculis fringilla ligula, id finibus tortor.
+        </MudText>
+        <MudText class="flex items-center gap-2 mt-4 lg:justify-normal">
+            <MudText class="text-xs text-[var(--mud-palette-text-primary)] font-semibold lg:text-base">LEARN MORE
+            </MudText>
+            <img src="/images/icons/arrow-up-right-colored.png" class="h-7 w-7 object-contain" alt="arrow icon" />
+        </MudText>
+    </article>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/safer-staking.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer
+                Staking</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/automated-staking.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Automated
+                Staking</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/cardano-health.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Cardano Health
+                Network</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/unlock-liquidity.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Unlock Liquidity
+            </MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
+    <MudCard
+        class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
+        <MudCardContent>
+            <img src="images/icons/sada-icon-small.png" class="h-12 w-12 object-contain" />
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">sADA
+                (shielded ADA)</MudText>
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)]">Lorem ipsum dolor sit
+                amet, consectetur adipiscing elit.
+            </MudText>
+        </MudCardContent>
+    </MudCard>
+
 </section>
 
+@* Third Section *@
 <section>
-    @* Second Section *@
-</section>
-
-<section>
-    @* Third Section *@
-</section>
-
-<section class="container p-6 m-auto flex flex-col items-center justify-center">
-    @* Fourth Section *@
-    <div class="flex items-center justify-end w-[1024px]">
-        <ul
-            class="grid grid-cols-6 w-full h-28 place-content-center lg:h-[28rem] lg:w-[13rem] lg:grid-cols-1 lg:grid-rows-6 text-base">
-            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1 ">
-                <div>
-                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                        <span class="">
-                            2024 | Q1
-                        </span>
-                    </div>
-                </div>
-                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
-                </div>
-            </div>
-            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
-                <div>
-                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                        <span class="">
-                            2024 | Q2
-                        </span>
-                    </div>
-                </div>
-                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
-                </div>
-            </div>
-            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
-                <div>
-                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                        <span class="">
-                            2024 | Q3
-                        </span>
-                    </div>
-                </div>
-                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
-                </div>
-            </div>
-            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
-                <div>
-                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                        <span class="">
-                            2024 | Q4
-                        </span>
-                    </div>
-                </div>
-                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
-                </div>
-            </div>
-            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
-                <div>
-                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                        <span class="">
-                            2025 | Q1
-                        </span>
-                    </div>
-                </div>
-                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
-                </div>
-            </div>
-            <div class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1">
-                <div>
-                    <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                        <span class="">
-                            2025 | Q2
-                        </span>
-                    </div>
-                </div>
-                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:justify-center">
-                </div>
-            </div>
-        </ul>
-        <MudCard
-            Class="relative w-full h-[24rem] mt-12 md:h-[28rem] lg:mt-0 lg:mx-0 lg:w-[39rem] lg:ml-4 !bg-[#0F3CAE] !rounded-[1rem]">
-            <MudCardContent Style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');"
-                Class="flex flex-col items-start gap-4 h-full w-full bg-cover bg-left-bottom bg-no-repeat md:bg-[size:90%_93%] !pb-0 pt-16 px-8 md:gap-8 md:!pt-20 md:!pl-12 md:!pr-20 !text-white">
-                <MudImage Src="images/icons/aegis-check-mark.png" />
-                <MudText Class="text-4xl font-semibold md:text-5xl">Heading</MudText>
-                <MudText Class="text-base font-light md:text-lg">04/10/2025</MudText>
-                <MudText Class="text-base font-light md:text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit.
-                    Pellentesque iaculis fringilla ligula, id finibus tortor.</MudText>
-            </MudCardContent>
-        </MudCard>
+    <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-top-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-top-arc-light.svg');"))"
+        class="relative mt-20 w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-52 md-72 lg:h-48" />
+    <div class="pt-16 pb-36 bg-[var(--mud-palette-primary-darken)]">
+        Hello
     </div>
-    <MudPaper Elevation="5" Class="w-full mt-16 max-w-screen-xl !bg-white !rounded-2xl">
-        <div class="!rounded-2xl py-12">
+    <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-bottom-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-bottom-arc-light.svg');"))"
+        class="relative w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-72 overflow-hidden lg:h-80">
+        <article
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center max-w-lg w-[70%] lg:top-1/2 lg:-translate-y-1/2">
+            <MudText class="text-4xl text-[var(--mud-palette-text-primary)] font-semibold md:text-5xl">Roadmap
+            </MudText>
+            <MudText class="text-base text-[var(--mud-palette-text-primary)] font-light mt-8 md:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque iaculis fringilla ligula, id finibus tortor.
+            </MudText>
+        </article>
+    </div>
+</section>
+
+<section
+    class="container flex flex-col justify-center w-full mt-16 max-w-screen-xl lg:flex-row lg:flex-wrap lg:gap-y-12 lg:!justify-end">
+    @* Fourth Section *@
+    <ul
+        class="grid grid-cols-6 w-full h-28 place-content-center lg:h-[28rem] lg:w-[13rem] lg:grid-cols-1 lg:grid-rows-6 text-base">
+        @for (int i = 0; i < Quarters.Count; i++)
+        {
+            var quarter = Quarters[i];
+            <li class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1"
+                @onmouseover="@(() => HoveredQuarter = $"{quarter.Year} | {quarter.QuarterName}")"
+                @onmouseleave="@(() => HoveredQuarter = "2024 | Q1")">
+                <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                    <span class="transition-all lg:hidden @GetHoverClass(quarter)">@quarter.QuarterName</span>
+                    <span class="@GetHoverClass(quarter) hidden transition-all lg:block">
+                        @quarter.Year | @quarter.QuarterName
+                    </span>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:!justify-center">
+                    <div
+                        class="circle relative z-20 h-2 w-2 rounded-full sm:h-4 sm:w-4 bg-[#D9D9D9] @((HoveredQuarter == $"{quarter.Year} | {quarter.QuarterName}" ? "scale-[200%] duration-300 bg-[#0033AD]" : ""))" />
+                    @if (i < Quarters.Count - 1)
+                    {
+                        <div
+                            class="absolute z-10 w-full h-[0.05rem] mt-1 sm:mt-2 left-1/2 lg:mt-0 lg:w-[0.05rem] lg:h-full lg:top-1/2 bg-[#D9D9D9]" />
+                    }
+                    <span class="transition-all lg:hidden @GetHoverClass(quarter)">
+                        @quarter.Year
+                    </span>
+                </div>
+            </li>
+        }
+    </ul>
+    <MudCard
+        Class="relative w-full h-[24rem] mx-auto mt-12 md:h-[28rem] lg:!mt-0 lg:!mx-0 lg:w-[39rem] lg:ml-4 !bg-[#0F3CAE] !rounded-[1rem]">
+        <MudCardContent Style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');"
+            Class="flex flex-col items-start gap-4 h-full w-full bg-cover bg-left-bottom bg-no-repeat md:bg-[size:90%_93%] !pb-0 pt-16 px-8 md:gap-8 md:!pt-20 md:!pl-12 md:!pr-20 !text-white">
+            <MudImage Src="images/icons/aegis-check-mark.png" />
+            <MudText Class="text-4xl font-semibold md:text-5xl">Heading</MudText>
+            <MudText Class="text-base font-light md:text-lg">04/10/2025</MudText>
+            <MudText Class="text-base font-light md:text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+                Pellentesque iaculis fringilla ligula, id finibus tortor.</MudText>
+        </MudCardContent>
+    </MudCard>
+    <MudPaper Elevation="5" Class="w-full !mt-16 max-w-screen-xl !bg-white !rounded-3xl">
+        <div class="flex flex-wrap justify-between items-center rounded-2xl py-12 md:flex-row">
             <MudText Class="w-full text-center text-4xl font-semibold md:mb-12 md:text-5xl !text-[#35383B]">
                 Tokenomics
             </MudText>
-            <div class="flex items-center">
+            <div class="relative w-[18rem] h-auto mx-auto flex items-center justify-center my-6 sm:!w-[27rem] lg:!h-[32rem] lg:!ml-auto lg:!mr-0 lg:!w-[50%]"
+                style="aspect-ratio: 1;">
                 <MudChart ChartType="ChartType.Pie" InputData="[77, 25, 20, 5]" Width="544px" Height="512px"
                     Class="ml-auto [&_.mud-chart-legend]:hidden" />
-                <ul class="w-[calc(90%-5vw)] mx-auto md:w-[90%] lg:px-0 lg:w-[calc(32%)] lg:mx-[6%] text-black">
-                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
-                        <div class="text-base flex items-center">
-                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
-                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
-                                Team
-                            </h6>
-                        </div>
-                        <p className="text-sm w-24 font-light ml-4 md:text-base">
-                            Tokens
-                        </p>
-                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                        <span className="text-sm w-24 ml-4 font-light md:text-base">
-                            10,000,000
-                        </span>
-                    </li>
-                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
-                        <div class="text-base flex items-center">
-                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
-                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
-                                Team
-                            </h6>
-                        </div>
-                        <p className="text-sm w-24 font-light ml-4 md:text-base">
-                            Tokens
-                        </p>
-                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                        <span className="text-sm w-24 ml-4 font-light md:text-base">
-                            10,000,000
-                        </span>
-                    </li>
-                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
-                        <div class="text-base flex items-center">
-                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
-                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
-                                Team
-                            </h6>
-                        </div>
-                        <p className="text-sm w-24 font-light ml-4 md:text-base">
-                            Tokens
-                        </p>
-                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                        <span className="text-sm w-24 ml-4 font-light md:text-base">
-                            10,000,000
-                        </span>
-                    </li>
-                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
-                        <div class="text-base flex items-center">
-                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
-                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
-                                Team
-                            </h6>
-                        </div>
-                        <p className="text-sm w-24 font-light ml-4 md:text-base">
-                            Tokens
-                        </p>
-                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                        <span className="text-sm w-24 ml-4 font-light md:text-base">
-                            10,000,000
-                        </span>
-                    </li>
-                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2">
-                        <div class="text-base flex items-center">
-                            <h6 class="text-base w-12 font-bold md:text-xl">10%</h6>
-                            <h6 className="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
-                                Team
-                            </h6>
-                        </div>
-                        <p className="text-sm w-24 font-light ml-4 md:text-base">
-                            Tokens
-                        </p>
-                        <p className="text-sm w-[calc(100%-7rem)] font-light md:text-base">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                        <span className="text-sm w-24 ml-4 font-light md:text-base">
-                            10,000,000
-                        </span>
-                    </li>
-                </ul>
             </div>
+            <ul class="w-[calc(90%-5vw)] mx-auto md:w-[90%] lg:px-0 lg:w-[calc(32%)] lg:mx-[6%] text-black">
+                @for (int i = 0; i < 5; i++)
+                {
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2 border-[#2f55b7]">
+                        <h6 class="text-base w-12 font-bold md:text-xl text-[#0F3CAE]">10%</h6>
+                        <h6 class="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                            Team
+                        </h6>
+                        <p class="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p class="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            Lorem ipsum dolor sit amet.
+                        </p>
+                        <span class="text-sm w-24 ml-4 font-light md:text-base">
+                            10,000,000
+                        </span>
+                    </li>
+                }
+            </ul>
         </div>
     </MudPaper>
 </section>
 
-<section class="container max-w-[1280px] px-[96px] m-auto">
+<div style="@((IsDarkMode ? "background-image: none;" : "background-image: url('/images/backgrounds/fifth-section-top-arc-light.svg');"))"
+    class="relative -z-10 w-screen bg-cover bg-center bg-no-repeat -mt-[25rem] h-[25rem] md:bg-[size:100%_100%] md:-mt-72 md:h-72" />
+
+<section class="relative flex flex-col items-center bg-[var(--mud-palette-primary-lighten)] text-white">
     @* Fifth Section *@
-    <div class="flex flex-wrap justify-between items-center">
+    <div class="container flex flex-wrap justify-between items-center max-w-screen-xl">
         <MudText Class="w-full my-28 text-center text-4xl font-semibold md:text-5xl">
             Team
         </MudText>
@@ -213,64 +235,50 @@
             </div>
         }
     </div>
-    <MudPaper Elevation="5" Class="rounded-2xl bg-white px-[min(7.5vw,96px)] py-16">
-        <MudText Class="text-center text-4xl font-semibold mb-16 md:text-5xl !text-[#323E59]">FAQs</MudText>
-        <MudExpansionPanels>
-            <MudExpansionPanel HideIcon="true"
-                Class="bg-white text-[#323E59] !border-b !border-[#D9D9D9] mt-8 shadow-none [&_.mud-expand-panel-header]:p-0">
-                <TitleContent>
-                    <div class="flex items-center justify-between mb-8 gap-x-4">
-                        <MudText class="text-xl font-semibold md:text-2xl">What is Sada?</MudText>
-                        <MudImage Src="images/icons/faq-minus.png" Alt="faq icon" class="h-7 w-7 object-contain" />
-                    </div>
-                </TitleContent>
-                <ChildContent>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis fringilla ligula, id
-                    finibus tortor. Ut in neque a lectus venenatis molestie. Suspendisse ullamcorper sapien turpis, ac
-                    dapibus mi maximus nec.
-                </ChildContent>
-            </MudExpansionPanel>
-            <MudExpansionPanel HideIcon="true"
-                Class="bg-white text-[#323E59] !border-b !border-[#D9D9D9] mt-8 shadow-none [&_.mud-expand-panel-header]:p-0">
-                <TitleContent>
-                    <div class="flex items-center justify-between mb-8 gap-x-4">
-                        <MudText class="text-xl font-semibold md:text-2xl">How does automated staking works?</MudText>
-                        <MudImage Src="images/icons/faq-minus.png" Alt="faq icon" class="h-7 w-7 object-contain" />
-                    </div>
-                </TitleContent>
-                <ChildContent>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis fringilla ligula, id
-                    finibus tortor. Ut in neque a lectus venenatis molestie. Suspendisse ullamcorper sapien turpis, ac
-                    dapibus mi maximus nec.
-                </ChildContent>
-            </MudExpansionPanel>
-            <MudExpansionPanel HideIcon="true"
-                Class="bg-white text-[#323E59] !border-b !border-[#D9D9D9] mt-8 shadow-none [&_.mud-expand-panel-header]:p-0">
-                <TitleContent>
-                    <div class="flex items-center justify-between mb-8 gap-x-4">
-                        <MudText class="text-xl font-semibold md:text-2xl">How does AEGIS improve the Cardano network?
-                        </MudText>
-                        <MudImage Src="images/icons/faq-minus.png" Alt="faq icon" class="h-7 w-7 object-contain" />
-                    </div>
-                </TitleContent>
-                <ChildContent>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis fringilla ligula, id
-                    finibus tortor. Ut in neque a lectus venenatis molestie. Suspendisse ullamcorper sapien turpis, ac
-                    dapibus mi maximus nec.
-                </ChildContent>
-            </MudExpansionPanel>
-        </MudExpansionPanels>
-    </MudPaper>
+    <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/fifth-section-bottom-arc-dark.svg');" : "background-image: url('/images/backgrounds/fifth-section-bottom-arc-light.svg');"))"
+        class="relative flex justify-center mt-28 pb-28 w-full bg-cover bg-top bg-no-repeat">
+        <article class="relative container w-full max-w-screen-xl">
+            <MudPaper Elevation="5" Class="rounded-2xl bg-white px-[min(7.5vw,96px)] py-16">
+                <MudText Class="text-center text-4xl font-semibold mb-16 md:text-5xl !text-[#323E59]">FAQs</MudText>
+                <MudExpansionPanels>
+                    @foreach (var (index, panel) in PanelContents!.Select((content, idx) => (idx, content)))
+                    {
+                        <MudExpansionPanel @bind-Expanded="@PanelStates![index]" HideIcon="true" Class="bg-white text-[#323E59] mt-8 shadow-none 
+                            [&_.mud-expand-panel-header]:p-0
+                            [&_.mud-expand-panel-content]:2xl:!pl-0 
+                            [&_.mud-expand-panel-content]:2xl:!pr-16 
+                            [&_.mud-expand-panel-content]:!py-4">
+                            <TitleContent>
+                                <div class="flex items-center justify-between mb-8 gap-x-4">
+                                    <MudText class="text-xl font-semibold md:text-2xl">@panel.Title</MudText>
+                                    <MudImage
+                                        Src="@((!PanelStates[index] ? "images/icons/faq-minus.png" : "images/icons/faq-plus.png"))"
+                                        Alt="faq icon" class="h-7 w-7 object-contain" />
+                                </div>
+                            </TitleContent>
+                            <ChildContent>
+                                <p
+                                    class="text-base md:text-lg font-light overflow-hidden transition-all duration-300 ease-in-out">
+                                    @panel.Content
+                                </p>
+                            </ChildContent>
+                        </MudExpansionPanel>
+                        <MudDivider Class="bg-[#D9D9D9]" />
+                    }
+                </MudExpansionPanels>
 
+            </MudPaper>
+        </article>
+    </div>
 </section>
 
-<footer class="bg-[#000F33]">
+<footer class="bg-[#000F33] text-white">
     @* Footer Section *@
     <article
-        class="container max-w-[1088px] m-auto flex flex-wrap !justify-center gap-9 py-12 md:!justify-between md:items-start">
+        class="container flex flex-wrap justify-center gap-9 py-12 max-w-screen-xl md:justify-between md:items-start">
         <div class="w-[60%] flex flex-col items-center gap-y-6 md:w-1/5">
-            <MudImage Src="/images/icons/aegis-light-logo.png" Alt="aegis icon" />
-            <div class="flex gap-3 w-full items-center justify-center">
+            <MudImage Src="/images/icons/aegis-light-logo.png" Alt="aegis icon" Class="h-full" />
+            <div class="flex gap-3 w-full justify-center">
                 <MudImage Src="/images/icons/facebook-icon.png" Alt="facebook icon" Class="h-12 w-12" />
                 <div class="h-12 w-12 rounded-full flex items-center justify-center bg-[#182749]">
                     <MudIcon Icon="@Icons.Custom.Brands.X" class="w-4 h-4" />
@@ -284,39 +292,47 @@
             </MudText>
             <li class="flex gap-2 items-center justify-normal">
                 <span class="text-base font-light md:text-lg">Features</span>
-                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
+                <MudImage src="/images/icons/arrow-up-right.svg" Class="h-4 w-3 object-contain" alt="facebook icon" />
             </li>
             <li class="flex gap-2 items-center justify-normal">
                 <span class="text-base font-light md:text-lg md:block md:w-16 xl:inline xl:w-auto">
                     How It Works
                 </span>
-                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
+                <MudImage src="/images/icons/arrow-up-right.svg" Class="h-4 w-3 object-contain" alt="facebook icon" />
             </li>
         </ul>
-        <ul class="w-[35%] flex flex-col gap-2 md:pl-[5%] md:w-1/5">
-            <MudText class="flex justify-normal text-lg font-medium md:text-xl">
+        <ul class="w-[36%] text-right flex flex-col gap-2 md:text-left md:pl-[5%] md:flex-1 md:w-1/5">
+            <MudText class="text-lg font-medium md:text-xl">
                 COMPANY
             </MudText>
-            <li class="flex gap-2 items-center justify-normal">
+            <li class="flex gap-2 items-center justify-end md:!justify-normal">
                 <span class="text-base font-light md:text-lg">About Us</span>
                 <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
             </li>
         </ul>
-        <div class="relative w-[150px] h-[50] p-[2px] rounded-full overflow-hidden">
-            <MudButton Class="absolute w-full">
-                <span class="text-base font-medium">OPEN APP</span>
+        <div class="relative w-[150px] h-[45px] rounded-full overflow-hidden hidden lg:block 
+            before:absolute before:content-[''] 
+            before:bg-[conic-gradient(from_90deg,_var(--mud-palette-info-lighten)_10%,_var(--mud-palette-info)_20%,_transparent_50%)] 
+            before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] 
+            before:animate-[spin_3s_linear_infinite]">
+            <MudButton
+                class="absolute w-[calc(100%-5px)] h-[calc(100%-5px)] rounded-[70px] bg-[#000F33] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
             </MudButton>
         </div>
     </article>
     <div class="border-t bg-white opacity-30" />
-    <article
-        class="container m-auto max-w-[1280px] w-full px-[min(7.5vw,96px)] flex justify-between gap-12 py-12 opacity-30">
-        <span className="text-sm md:text-base">AEGIS, 2024</span>
-        <div class="flex gap-9 items-center">
-            <span className="!flex-1 text-right text-sm md:text-base">
-                Terms & Conditions
-            </span>
-            <span className="text-sm md:text-base">Privacy Policy</span>
-        </div>
+    <article class="container max-w-screen-xl w-full px-[min(7.5vw,96px)] flex justify-between gap-12 py-12 opacity-30">
+        <span class="text-sm md:text-base">AEGIS, 2024</span>
+        <span class="flex-1 text-right text-sm md:text-base">
+            Terms & Conditions
+        </span>
+        <span class="text-sm md:text-base">Privacy Policy</span>
     </article>
 </footer>
+
+@*(TEMPORARY). Will remove -Ivan*@
+@code {
+    [CascadingParameter] public bool IsDarkMode { get; set; }
+
+}
