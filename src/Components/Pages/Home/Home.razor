@@ -2,10 +2,10 @@
 @page "/"
 
 @* First Section *@
-<MudPaper class="relative h-auto xl:h-screen 2xl:h-auto bg-[var(--mud-palette-primary)]">
+<div class="relative h-auto xl:h-screen 2xl:h-auto bg-[var(--mud-palette-primary)]">
     <Header />
     <article
-        class="relative mx-auto z-20 text-center pb-32 mt-20 max-w-screen-xl lg:pb-72 lg:mt-40 2xl:h-auto 2xl:pt-0">
+        class="relative container z-20 text-center pb-32 mt-20 max-w-screen-xl lg:pb-72 lg:mt-40 2xl:h-auto 2xl:pt-0">
         <MudText class="h1 font-semibold text-4xl text-[var(--mud-palette-white)] xl:text-[4rem] xl:leading-[4rem]">
             Protecting Value, <br />
             Maximizing Rewards
@@ -14,20 +14,30 @@
             Join AEGIS and safeguard your assets with <br />
             secure, Cardano-powered staking solutions.
         </MudText>
-        <MudPaper class="w-[14rem] mx-auto p-[2px] rounded-[50px] bg-red-500">
+        <MudPaper class="w-[14rem] mx-auto p-[2px] rounded-[50px]
+        bg-gradient-to-r from-[var(--mud-palette-info-lighten)] to-[var(--mud-palette-info)]
+        ">
             <MudButton Variant="Variant.Filled" class="w-full rounded-[50px] bg-[var(--mud-palette-white)]">
                 <MudText class="text-base font-bold text-[var(--mud-palette-black)]">START STAKING NOW</MudText>
             </MudButton>
         </MudPaper>
     </article>
-    <div style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');" />
-</MudPaper>
+    <div style="background-image: url('/images/backgrounds/first-section-layer-1.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-first 5s ease-in-out infinite 
+        opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full 
+        sm:top-32 sm:left-0 sm:-translate-x-0 sm:-translate-y-0" />
+    <div style="background-image: url('/images/backgrounds/first-section-layer-2.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-second 5s ease-in-out infinite
+        opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full
+        sm:top-32 sm:left-0 sm:-translate-x-0 sm:-translate-y-0" />
+    <div style=" background-image: url('/images/backgrounds/first-section-layer-3.svg');" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-scale-shield-third 5s ease-in-out infinite 
+        opacity-20 w-[640px] h-[640px] bg-contain z-10 bg-no-repeat bg-center mix-blend-screen sm:h-full sm:w-full 
+        sm:top-32 sm:left-0 sm:-translate-x-0 sm:-translate-y-0" />
+</div>
 <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/first-section-arc-dark.svg');" : "background-image: url('/images/backgrounds/first-section-arc-light.svg');"))"
     class="relative bg-[size:100%_100%] bg-center bg-no-repeat h-56 md:h-72 2xl:h-48" />
 
 @* Second Section *@
 <section
-    class="mx-auto grid grid-cols-1 place-items-center mt-20 w-full gap-10 max-w-screen-xl sm:grid-cols-2 lg:gap-6 lg:place-items-end xl:gap-6 lg:grid-cols-3">
+    class="container grid grid-cols-1 place-items-center mt-20 w-full gap-10 max-w-screen-xl sm:grid-cols-2 lg:gap-6 lg:place-items-end xl:gap-6 lg:grid-cols-3">
     <article
         class="w-3/4 text-center max-w-screen-xl place-self-auto sm:w-1/2 sm:mb-0 sm:col-span-2 lg:col-span-1 lg:text-left lg:w-full lg:h-[22rem] lg:place-self-auto">
         <MudText class="text-4xl text-[var(--mud-palette-text-primary)] font-semibold lg:text-5xl">Key Benefits
@@ -116,9 +126,9 @@
         class="relative w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-72 overflow-hidden lg:h-80">
         <article
             class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center max-w-lg w-[70%] lg:top-1/2 lg:-translate-y-1/2">
-            <MudText className="text-4xl text-[var(--mud-palette-text-primary)] font-semibold md:text-5xl">Roadmap
+            <MudText class="text-4xl text-[var(--mud-palette-text-primary)] font-semibold md:text-5xl">Roadmap
             </MudText>
-            <MudText className="text-base text-[var(--mud-palette-text-primary)] font-light mt-8 md:text-lg">
+            <MudText class="text-base text-[var(--mud-palette-text-primary)] font-light mt-8 md:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque iaculis fringilla ligula, id finibus tortor.
             </MudText>

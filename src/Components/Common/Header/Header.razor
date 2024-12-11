@@ -2,18 +2,39 @@
 @namespace Aegis.Web.Components.Common
 @using Aegis.Web.Components.Layout
 
-<header class="mx-auto relative z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
+<header class="container relative z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
     <img src="@((IsDarkMode ? "/images/icons/aegis-dark-logo.png" : "/images/icons/aegis-light-logo.png"))"
         alt="aegis logo" className="h-full" />
     <ul class="hidden gap-12 items-center lg:flex">
-        <MudLink>HOME</MudLink>
-        <MudLink>ABOUT US</MudLink>
-        <MudLink>HOW IT WORKS</MudLink>
+        <MudText class="relative cursor-pointer text-base text-[var(--mud-palette-white)] font-medium 
+           after:absolute after:content-[''] 
+           after:bg-gradient-to-r after:from-[var(--mud-palette-info-lighten)] after:via-[var(--mud-palette-info)] after:to-[var(--mud-palette-info-darken)]
+           after:w-0 after:h-[0.1rem] after:-bottom-3 after:left-1/2 after:-translate-x-1/2 
+           after:transition-all after:duration-300 hover:after:w-[calc(100%+3rem)]">
+            HOME
+        </MudText>
+        <MudText class="relative cursor-pointer text-base text-[var(--mud-palette-white)] font-medium 
+           after:absolute after:content-[''] 
+           after:bg-gradient-to-r after:from-[var(--mud-palette-info-lighten)] after:via-[var(--mud-palette-info)] after:to-[var(--mud-palette-info-darken)]
+           after:w-0 after:h-[0.1rem] after:-bottom-3 after:left-1/2 after:-translate-x-1/2 
+           after:transition-all after:duration-300 hover:after:w-[calc(100%+3rem)]">
+            ABOUT US
+        </MudText>
+        <MudText class="relative cursor-pointer text-base text-[var(--mud-palette-white)] font-medium 
+           after:absolute after:content-[''] 
+           after:bg-gradient-to-r after:from-[var(--mud-palette-info-lighten)] after:via-[var(--mud-palette-info)] after:to-[var(--mud-palette-info-darken)]
+           after:w-0 after:h-[0.1rem] after:-bottom-3 after:left-1/2 after:-translate-x-1/2 
+           after:transition-all after:duration-300 hover:after:w-[calc(100%+3rem)]">
+            HOW IT WORKS
+        </MudText>
     </ul>
-    <div
-        class="@((IsDarkMode ? "before:bg-[conic-gradient(from 90deg, #79FAF3 10%, #FFFFFF 20%, transparent 50%)]" :
-        "before:bg-[conic-gradient(from 90deg, #79FAF3 10%, #0F3CAE 20%, transparent 50%)]")) relative w-[150px] h-[50px] p-[10px] rounded-full overflow-hidden hidden before:absolute before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] before:animate-[spin_3s_linear_infinite] lg:block">
-        <MudButton class="absolute w-full rounded-[70px]" Color="Color.Primary">
+    <div class="relative w-[150px] h-[45px] rounded-full overflow-hidden hidden lg:block 
+    before:absolute before:content-[''] 
+    before:bg-[conic-gradient(from_90deg,_var(--mud-palette-info-lighten)_10%,_var(--mud-palette-info)_20%,_transparent_50%)] 
+    before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] 
+    before:animate-[spin_3s_linear_infinite]">
+        <MudButton
+            class="absolute w-[calc(100%-5px)] h-[calc(100%-5px)] rounded-[70px] bg-[var(--mud-palette-primary)] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
         </MudButton>
     </div>

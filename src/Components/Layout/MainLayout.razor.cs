@@ -18,6 +18,9 @@ public partial class MainLayout
             TextPrimary = "#323E59",
             GrayDark = "#323E59",
             GrayLight = "#4D5465",
+            InfoLighten = "#79FAF3",
+            Info = "#3C92F9",
+            InfoDarken = "#0F3CAE",      
         },
         PaletteDark = new PaletteDark()
         {
@@ -31,6 +34,9 @@ public partial class MainLayout
             TextPrimary = "#FFFFFF",
             GrayDark = "#323E59",
             GrayLight = "#4D5465",
+            InfoLighten = "#79FAF3",
+            Info = "#3C92F9",
+            InfoDarken = "#FFFFFF",         
         },
         Typography = new()
         {

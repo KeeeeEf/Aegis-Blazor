@@ -35,6 +35,12 @@ export default {
           },
         },
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "min(7.5vw,96px)",
+        },
+      },
     },
   },
   plugins: [],
