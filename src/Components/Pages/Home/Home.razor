@@ -59,8 +59,8 @@
         class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
         <MudCardContent>
             <img src="images/icons/safer-staking.png" class="h-12 w-12 object-contain" />
-            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer
-                Staking</MudText>
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer Staking
+            </MudText>
             <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
                 amet, consectetur adipiscing elit.
             </MudText>
@@ -73,8 +73,8 @@
             <img src="images/icons/automated-staking.png" class="h-12 w-12 object-contain" />
             <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Automated
                 Staking</MudText>
-            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
             </MudText>
         </MudCardContent>
     </MudCard>
@@ -85,8 +85,8 @@
             <img src="images/icons/cardano-health.png" class="h-12 w-12 object-contain" />
             <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Cardano Health
                 Network</MudText>
-            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
             </MudText>
         </MudCardContent>
     </MudCard>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:!justify-center">
                     <div
-                        class="circle relative z-20 h-2 w-2 rounded-full sm:h-4 sm:w-4 bg-[#D9D9D9] @((HoveredQuarter == $"{quarter.Year} | {quarter.QuarterName}" ? "scale-[200%] duration-300 bg-[#0033AD]" : ""))" />
+                        class="circle relative z-20 h-2 w-2 rounded-full sm:h-4 sm:w-4 @((HoveredQuarter == $"{quarter.Year} | {quarter.QuarterName}" ? "scale-[200%] duration-300 bg-[#0033AD]" : "bg-[#D9D9D9]"))" />
                     @if (i < Quarters.Count - 1)
                     {
                         <div
@@ -173,7 +173,7 @@
     <MudCard
         Class="relative w-full h-[24rem] mx-auto mt-12 md:h-[28rem] lg:!mt-0 lg:!mx-0 lg:w-[39rem] lg:ml-4 !bg-[#0F3CAE] !rounded-[1rem]">
         <MudCardContent Style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');"
-            Class="flex flex-col items-start gap-4 h-full w-full bg-cover bg-left-bottom bg-no-repeat md:bg-[size:90%_93%] !pb-0 pt-16 px-8 md:gap-8 md:!pt-20 md:!pl-12 md:!pr-20 !text-white">
+            Class="flex flex-col items-start gap-4 h-full w-full bg-cover bg-left-bottom bg-no-repeat md:bg-[size:90%_93%] !pb-0 pt-16 px-8 md:gap-8 md:!pt-20 md:!pl-12 md:!pr-20 text-[var(--mud-palette-white)]">
             <MudImage Src="images/icons/aegis-check-mark.png" />
             <MudText Class="text-4xl font-semibold md:text-5xl">Heading</MudText>
             <MudText Class="text-base font-light md:text-lg">04/10/2025</MudText>
@@ -189,27 +189,47 @@
             </MudText>
             <div class="relative w-[18rem] h-auto mx-auto flex items-center justify-center my-6 sm:!w-[27rem] lg:!h-[32rem] lg:!ml-auto lg:!mr-0 lg:!w-[50%]"
                 style="aspect-ratio: 1;">
-                <MudChart ChartType="ChartType.Pie" InputData="[77, 25, 20, 5]" Width="544px" Height="512px"
-                    Class="ml-auto [&_.mud-chart-legend]:hidden" />
+                <MudChart 
+                    ChartType="ChartType.Donut" 
+                    InputData="[235, 40, 45, 20, 20]"
+                    Class="[&_.mud-chart-legend]:hidden !w-[120%] !h-[120%]" 
+                    Width="100%" 
+                    Height="100%"
+                    ChartOptions="@(new() { ChartPalette = new[] { "#0F3CAE", "#517FF3", "#A5D0E8", "#E9DC94", "#9747FF" } })"
+                />
+                <div class="absolute flex flex-col items-center justify-center gap-4 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10/12 bg-[#F3F3F3] text-[var(--mud-palette-gray-dark)]"
+                    style="aspect-ratio: 1;">
+                    <h4 class="text-1xl font-semibold md:text-2xl">
+                        Total Supply
+                    </h4>
+                    <h3 class="text-2xl font-bold md:text-3xl">10,000,000,000</h3>
+                    <span class="text-base font-light md:text-lg">Tokens</span>
+                </div>
             </div>
             <ul class="w-[calc(90%-5vw)] mx-auto md:w-[90%] lg:px-0 lg:w-[calc(32%)] lg:mx-[6%] text-black">
-                @for (int i = 0; i < 5; i++)
+                @foreach(var datum in TokenomicList.Select((value, index) => new { value, index }))
                 {
-                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4 border-b-2 border-[#2f55b7]">
-                        <h6 class="text-base w-12 font-bold md:text-xl text-[#0F3CAE]">10%</h6>
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4">
+                        <h6 class="text-base w-12 font-bold md:text-xl" style="color: @datum.value.Color">
+                            @datum.value.Percentage
+                        </h6>
                         <h6 class="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
-                            Team
+                            @datum.value.Name
                         </h6>
                         <p class="text-sm w-24 font-light ml-4 md:text-base">
                             Tokens
                         </p>
                         <p class="text-sm w-[calc(100%-7rem)] font-light md:text-base">
-                            Lorem ipsum dolor sit amet.
+                            @datum.value.Description
                         </p>
                         <span class="text-sm w-24 ml-4 font-light md:text-base">
-                            10,000,000
+                            @datum.value.Amount
                         </span>
                     </li>
+                    @if (datum.index < TokenomicList.Count - 1)
+                    {
+                        <MudDivider Class="bg-[#2f55b7] h-[2px]" />
+                    }
                 }
             </ul>
         </div>
@@ -219,7 +239,8 @@
 <div style="@((IsDarkMode ? "background-image: none;" : "background-image: url('/images/backgrounds/fifth-section-top-arc-light.svg');"))"
     class="relative -z-10 w-screen bg-cover bg-center bg-no-repeat -mt-[25rem] h-[25rem] md:bg-[size:100%_100%] md:-mt-72 md:h-72" />
 
-<section class="relative flex flex-col items-center bg-[var(--mud-palette-primary-lighten)] text-white">
+<section
+    class="relative flex flex-col items-center bg-[var(--mud-palette-primary-lighten)] text-[var(--mud-palette-white)]">
     @* Fifth Section *@
     <div class="container flex flex-wrap justify-between items-center max-w-screen-xl">
         <MudText Class="w-full my-28 text-center text-4xl font-semibold md:text-5xl">
@@ -272,8 +293,8 @@
     </div>
 </section>
 
-<footer class="bg-[#000F33] text-white">
-    @* Footer Section *@
+<footer class="bg-[#000F33] text-[var(--mud-palette-white)]">
+    @* Footer Section. Reminder: Move to Footer in Common *@
     <article
         class="container flex flex-wrap justify-center gap-9 py-12 max-w-screen-xl md:justify-between md:items-start">
         <div class="w-[60%] flex flex-col items-center gap-y-6 md:w-1/5">
@@ -310,16 +331,15 @@
                 <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
             </li>
         </ul>
-        <div class="relative w-[150px] h-[45px] rounded-full overflow-hidden hidden lg:block 
-            before:absolute before:content-[''] 
-            before:bg-[conic-gradient(from_90deg,_var(--mud-palette-info-lighten)_10%,_var(--mud-palette-info)_20%,_transparent_50%)] 
-            before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] 
-            before:animate-[spin_3s_linear_infinite]">
-            <MudButton
-                class="absolute w-[calc(100%-5px)] h-[calc(100%-5px)] rounded-[70px] bg-[#000F33] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
-            </MudButton>
-        </div>
+        <MudButton
+            Variant="Variant.Filled"
+            Class="animate-rotate-border !font-normal !normal-case !rounded-full w-[150px] h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
+            Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)"
+        >
+            <div class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[#000F33] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
+                OPEN APP
+            </div>
+        </MudButton>
     </article>
     <div class="border-t bg-white opacity-30" />
     <article class="container max-w-screen-xl w-full px-[min(7.5vw,96px)] flex justify-between gap-12 py-12 opacity-30">

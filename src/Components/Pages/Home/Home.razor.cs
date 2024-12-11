@@ -6,11 +6,60 @@ public partial class Home
 
     protected List<(string Title, string Content)>? PanelContents { get; set; }
 
+    //Reminder: Create Separate Directory for types
+    public class TokenomicData
+    {
+        public string Percentage { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Amount { get; set; } = string.Empty;
+        public string Color { get; set; } = string.Empty;
+    }
+
     public class Quarter
     {
         public string Year { get; set; } = string.Empty;
         public string QuarterName { get; set; } = string.Empty;
     }
+
+    public List<TokenomicData> TokenomicList = new List<TokenomicData>
+    {
+        new TokenomicData { 
+            Percentage = "10%", 
+            Name = "Team", 
+            Description = "Lorem ipsum dolor sit amet.", 
+            Amount = "10,000,000",
+            Color = "#0F3CAE"
+        },
+        new TokenomicData { 
+            Percentage = "10%", 
+            Name = "Team", 
+            Description = "Lorem ipsum dolor sit amet.", 
+            Amount = "10,000,000",
+            Color = "#517FF3"
+        },
+        new TokenomicData { 
+            Percentage = "10%", 
+            Name = "Team", 
+            Description = "Lorem ipsum dolor sit amet.", 
+            Amount = "10,000,000",
+            Color = "#A5D0E8"
+        },
+        new TokenomicData { 
+            Percentage = "10%", 
+            Name = "Team", 
+            Description = "Lorem ipsum dolor sit amet.", 
+            Amount = "10,000,000",
+            Color = "#E9DC94"
+        },
+        new TokenomicData { 
+            Percentage = "10%", 
+            Name = "Team", 
+            Description = "Lorem ipsum dolor sit amet.", 
+            Amount = "10,000,000",
+            Color = "#9747FF"
+        },
+    };
 
     protected string? HoveredQuarter { get; set; } = "2024 | Q1";
 

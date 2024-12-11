@@ -8,8 +8,12 @@ export default {
         "scale-shield-first": "scaleShieldFirst 15s ease-in-out infinite",
         "scale-shield-second": "scaleShieldSecond 15s ease-in-out infinite",
         "scale-shield-third": "scaleShieldThird 15s ease-in-out infinite",
+        "rotate-border": "rotateBorder 3s linear infinite",
       },
       keyframes: {
+        rotateBorder: {
+          to: { "--border-angle": "360deg" },
+        },
         scaleShieldFirst: {
           "0%, 100%": {
             backgroundSize: "40% 40%",
