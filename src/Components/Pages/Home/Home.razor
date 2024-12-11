@@ -1,5 +1,7 @@
-﻿@using Aegis.Web.Components.Common;
+﻿@using Aegis.Web.Components.Common
 @page "/"
+
+@namespace Aegis.Web.Components.Pages
 
 @* First Section *@
 <div class="relative h-auto xl:h-screen 2xl:h-auto bg-[var(--mud-palette-primary)]">
@@ -57,8 +59,8 @@
         class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
         <MudCardContent>
             <img src="images/icons/safer-staking.png" class="h-12 w-12 object-contain" />
-            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer
-                Staking</MudText>
+            <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer Staking
+            </MudText>
             <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
                 amet, consectetur adipiscing elit.
             </MudText>
@@ -71,8 +73,8 @@
             <img src="images/icons/automated-staking.png" class="h-12 w-12 object-contain" />
             <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Automated
                 Staking</MudText>
-            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
             </MudText>
         </MudCardContent>
     </MudCard>
@@ -83,8 +85,8 @@
             <img src="images/icons/cardano-health.png" class="h-12 w-12 object-contain" />
             <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Cardano Health
                 Network</MudText>
-            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
-                amet, consectetur adipiscing elit.
+            <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
             </MudText>
         </MudCardContent>
     </MudCard>
@@ -136,19 +138,220 @@
     </div>
 </section>
 
-<section>
+<section
+    class="container flex flex-col justify-center w-full mt-16 max-w-screen-xl lg:flex-row lg:flex-wrap lg:gap-y-12 lg:!justify-end">
     @* Fourth Section *@
+    <ul
+        class="grid grid-cols-6 w-full h-28 place-content-center lg:h-[28rem] lg:w-[13rem] lg:grid-cols-1 lg:grid-rows-6 text-base">
+        @for (int i = 0; i < Quarters.Count; i++)
+        {
+            var quarter = Quarters[i];
+            <li class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1"
+                @onmouseover="@(() => HoveredQuarter = $"{quarter.Year} | {quarter.QuarterName}")"
+                @onmouseleave="@(() => HoveredQuarter = "2024 | Q1")">
+                <div class="w-full h-full flex justify-center items-center lg:justify-end">
+                    <span class="transition-all lg:hidden @GetHoverClass(quarter)">@quarter.QuarterName</span>
+                    <span class="@GetHoverClass(quarter) hidden transition-all lg:block">
+                        @quarter.Year | @quarter.QuarterName
+                    </span>
+                </div>
+                <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:!justify-center">
+                    <div
+                        class="circle relative z-20 h-2 w-2 rounded-full sm:h-4 sm:w-4 @((HoveredQuarter == $"{quarter.Year} | {quarter.QuarterName}" ? "scale-[200%] duration-300 bg-[#0033AD]" : "bg-[#D9D9D9]"))" />
+                    @if (i < Quarters.Count - 1)
+                    {
+                        <div
+                            class="absolute z-10 w-full h-[0.05rem] mt-1 sm:mt-2 left-1/2 lg:mt-0 lg:w-[0.05rem] lg:h-full lg:top-1/2 bg-[#D9D9D9]" />
+                    }
+                    <span class="transition-all lg:hidden @GetHoverClass(quarter)">
+                        @quarter.Year
+                    </span>
+                </div>
+            </li>
+        }
+    </ul>
+    <MudCard
+        Class="relative w-full h-[24rem] mx-auto mt-12 md:h-[28rem] lg:!mt-0 lg:!mx-0 lg:w-[39rem] lg:ml-4 !bg-[#0F3CAE] !rounded-[1rem]">
+        <MudCardContent Style="background-image: url('/images/backgrounds/fourth-section-time-container.svg');"
+            Class="flex flex-col items-start gap-4 h-full w-full bg-cover bg-left-bottom bg-no-repeat md:bg-[size:90%_93%] !pb-0 pt-16 px-8 md:gap-8 md:!pt-20 md:!pl-12 md:!pr-20 text-[var(--mud-palette-white)]">
+            <MudImage Src="images/icons/aegis-check-mark.png" />
+            <MudText Class="text-4xl font-semibold md:text-5xl">Heading</MudText>
+            <MudText Class="text-base font-light md:text-lg">04/10/2025</MudText>
+            <MudText Class="text-base font-light md:text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
+                Pellentesque iaculis fringilla ligula, id finibus tortor.</MudText>
+        </MudCardContent>
+    </MudCard>
+    <MudPaper Elevation="5" Class="w-full !mt-16 max-w-screen-xl !bg-white !rounded-3xl">
+        <div class="flex flex-wrap justify-between items-center rounded-2xl py-12 md:flex-row">
+            <MudText Class="w-full text-center text-4xl font-semibold md:mb-12 md:text-5xl !text-[#35383B]">
+                Tokenomics
+            </MudText>
+            <div class="relative w-[18rem] h-auto mx-auto flex items-center justify-center my-6 sm:!w-[27rem] lg:!h-[32rem] lg:!ml-auto lg:!mr-0 lg:!w-[50%]"
+                style="aspect-ratio: 1;">
+                <MudChart 
+                    ChartType="ChartType.Donut" 
+                    InputData="[235, 40, 45, 20, 20]"
+                    Class="[&_.mud-chart-legend]:hidden !w-[120%] !h-[120%]" 
+                    Width="100%" 
+                    Height="100%"
+                    ChartOptions="@(new() { ChartPalette = new[] { "#0F3CAE", "#517FF3", "#A5D0E8", "#E9DC94", "#9747FF" } })"
+                />
+                <div class="absolute flex flex-col items-center justify-center gap-4 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10/12 bg-[#F3F3F3] text-[var(--mud-palette-gray-dark)]"
+                    style="aspect-ratio: 1;">
+                    <h4 class="text-1xl font-semibold md:text-2xl">
+                        Total Supply
+                    </h4>
+                    <h3 class="text-2xl font-bold md:text-3xl">10,000,000,000</h3>
+                    <span class="text-base font-light md:text-lg">Tokens</span>
+                </div>
+            </div>
+            <ul class="w-[calc(90%-5vw)] mx-auto md:w-[90%] lg:px-0 lg:w-[calc(32%)] lg:mx-[6%] text-black">
+                @foreach(var datum in TokenomicList.Select((value, index) => new { value, index }))
+                {
+                    <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4">
+                        <h6 class="text-base w-12 font-bold md:text-xl" style="color: @datum.value.Color">
+                            @datum.value.Percentage
+                        </h6>
+                        <h6 class="text-base w-[calc(100%-10rem)] font-bold md:text-xl">
+                            @datum.value.Name
+                        </h6>
+                        <p class="text-sm w-24 font-light ml-4 md:text-base">
+                            Tokens
+                        </p>
+                        <p class="text-sm w-[calc(100%-7rem)] font-light md:text-base">
+                            @datum.value.Description
+                        </p>
+                        <span class="text-sm w-24 ml-4 font-light md:text-base">
+                            @datum.value.Amount
+                        </span>
+                    </li>
+                    @if (datum.index < TokenomicList.Count - 1)
+                    {
+                        <MudDivider Class="bg-[#2f55b7] h-[2px]" />
+                    }
+                }
+            </ul>
+        </div>
+    </MudPaper>
 </section>
 
-<section>
+<div style="@((IsDarkMode ? "background-image: none;" : "background-image: url('/images/backgrounds/fifth-section-top-arc-light.svg');"))"
+    class="relative -z-10 w-screen bg-cover bg-center bg-no-repeat -mt-[25rem] h-[25rem] md:bg-[size:100%_100%] md:-mt-72 md:h-72" />
+
+<section
+    class="relative flex flex-col items-center bg-[var(--mud-palette-primary-lighten)] text-[var(--mud-palette-white)]">
     @* Fifth Section *@
+    <div class="container flex flex-wrap justify-between items-center max-w-screen-xl">
+        <MudText Class="w-full my-28 text-center text-4xl font-semibold md:text-5xl">
+            Team
+        </MudText>
+        @for (int i = 0; i < 8; i++)
+        {
+            <div class="w-full flex flex-col items-center gap-4 md:w-1/2 lg:w-1/4 mb-24">
+                <div class="h-28 w-28 rounded-full bg-white" />
+                <MudText Class="text-2xl font-medium">Name Lastname</MudText>
+                <MudText class="font-extralight">Job Title</MudText>
+                <MudIcon Icon="@Icons.Custom.Brands.X" Class="h-[1.25em] w-[1.25em] p-[.35em] rounded-full bg-[#3C92F9]" />
+            </div>
+        }
+    </div>
+    <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/fifth-section-bottom-arc-dark.svg');" : "background-image: url('/images/backgrounds/fifth-section-bottom-arc-light.svg');"))"
+        class="relative flex justify-center mt-28 pb-28 w-full bg-cover bg-top bg-no-repeat">
+        <article class="relative container w-full max-w-screen-xl">
+            <MudPaper Elevation="5" Class="rounded-2xl bg-white px-[min(7.5vw,96px)] py-16">
+                <MudText Class="text-center text-4xl font-semibold mb-16 md:text-5xl !text-[#323E59]">FAQs</MudText>
+                <MudExpansionPanels>
+                    @foreach (var (index, panel) in PanelContents!.Select((content, idx) => (idx, content)))
+                    {
+                        <MudExpansionPanel @bind-Expanded="@PanelStates![index]" HideIcon="true" Class="bg-white text-[#323E59] mt-8 shadow-none 
+                            [&_.mud-expand-panel-header]:p-0
+                            [&_.mud-expand-panel-content]:2xl:!pl-0 
+                            [&_.mud-expand-panel-content]:2xl:!pr-16 
+                            [&_.mud-expand-panel-content]:!py-4">
+                            <TitleContent>
+                                <div class="flex items-center justify-between mb-8 gap-x-4">
+                                    <MudText class="text-xl font-semibold md:text-2xl">@panel.Title</MudText>
+                                    <MudImage
+                                        Src="@((!PanelStates[index] ? "images/icons/faq-minus.png" : "images/icons/faq-plus.png"))"
+                                        Alt="faq icon" class="h-7 w-7 object-contain" />
+                                </div>
+                            </TitleContent>
+                            <ChildContent>
+                                <p
+                                    class="text-base md:text-lg font-light overflow-hidden transition-all duration-300 ease-in-out">
+                                    @panel.Content
+                                </p>
+                            </ChildContent>
+                        </MudExpansionPanel>
+                        <MudDivider Class="bg-[#D9D9D9]" />
+                    }
+                </MudExpansionPanels>
+
+            </MudPaper>
+        </article>
+    </div>
 </section>
 
-<section>
-    @* Footer Section *@
-</section>
+<footer class="bg-[#000F33] text-[var(--mud-palette-white)]">
+    @* Footer Section. Reminder: Move to Footer in Common *@
+    <article
+        class="container flex flex-wrap justify-center gap-9 py-12 max-w-screen-xl md:justify-between md:items-start">
+        <div class="w-[60%] flex flex-col items-center gap-y-6 md:w-1/5">
+            <MudImage Src="/images/icons/aegis-light-logo.png" Alt="aegis icon" Class="h-full" />
+            <div class="flex gap-3 w-full justify-center">
+                <MudImage Src="/images/icons/facebook-icon.png" Alt="facebook icon" Class="h-12 w-12" />
+                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-[#182749]">
+                    <MudIcon Icon="@Icons.Custom.Brands.X" class="w-4 h-4" />
+                </div>
+                <MudImage Src="/images/icons/discord-icon.png" Alt="discord icon" class="h-12 w-12" />
+            </div>
+        </div>
+        <ul class="w-[35%] flex flex-col gap-2 md:pl-[5%] md:w-1/5">
+            <MudText class="flex justify-normal text-lg font-medium md:text-xl">
+                PRODUCT
+            </MudText>
+            <li class="flex gap-2 items-center justify-normal">
+                <span class="text-base font-light md:text-lg">Features</span>
+                <MudImage src="/images/icons/arrow-up-right.svg" Class="h-4 w-3 object-contain" alt="facebook icon" />
+            </li>
+            <li class="flex gap-2 items-center justify-normal">
+                <span class="text-base font-light md:text-lg md:block md:w-16 xl:inline xl:w-auto">
+                    How It Works
+                </span>
+                <MudImage src="/images/icons/arrow-up-right.svg" Class="h-4 w-3 object-contain" alt="facebook icon" />
+            </li>
+        </ul>
+        <ul class="w-[36%] text-right flex flex-col gap-2 md:text-left md:pl-[5%] md:flex-1 md:w-1/5">
+            <MudText class="text-lg font-medium md:text-xl">
+                COMPANY
+            </MudText>
+            <li class="flex gap-2 items-center justify-end md:!justify-normal">
+                <span class="text-base font-light md:text-lg">About Us</span>
+                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
+            </li>
+        </ul>
+        <MudButton
+            Variant="Variant.Filled"
+            Class="animate-rotate-border !font-normal !normal-case !rounded-full w-[150px] h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
+            Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)"
+        >
+            <div class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[#000F33] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
+                OPEN APP
+            </div>
+        </MudButton>
+    </article>
+    <div class="border-t bg-white opacity-30" />
+    <article class="container max-w-screen-xl w-full px-[min(7.5vw,96px)] flex justify-between gap-12 py-12 opacity-30">
+        <span class="text-sm md:text-base">AEGIS, 2024</span>
+        <span class="flex-1 text-right text-sm md:text-base">
+            Terms & Conditions
+        </span>
+        <span class="text-sm md:text-base">Privacy Policy</span>
+    </article>
+</footer>
 
-
+@*(TEMPORARY). Will remove -Ivan*@
 @code {
     [CascadingParameter] public bool IsDarkMode { get; set; }
 

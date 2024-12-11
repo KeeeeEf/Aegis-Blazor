@@ -28,16 +28,15 @@
             HOW IT WORKS
         </MudText>
     </ul>
-    <div class="relative w-[150px] h-[45px] rounded-full overflow-hidden hidden lg:block 
-    before:absolute before:content-[''] 
-    before:bg-[conic-gradient(from_90deg,_var(--mud-palette-info-lighten)_10%,_var(--mud-palette-info)_20%,_transparent_50%)] 
-    before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] 
-    before:animate-[spin_3s_linear_infinite]">
-        <MudButton
-            class="absolute w-[calc(100%-5px)] h-[calc(100%-5px)] rounded-[70px] bg-[var(--mud-palette-primary)] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
-        </MudButton>
-    </div>
+    <MudButton
+        Variant="Variant.Filled"
+        Class="animate-rotate-border !font-normal !normal-case !rounded-full w-[150px] h-[45px] !text-[var(--mud-palette-text-primary)] !p-[2px]"
+        Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)"
+    >
+        <div class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[var(--mud-palette-primary)] text-[var(--mud-palette-white)] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
+            OPEN APP
+        </div>
+    </MudButton>
 </header>
 
 @code {
