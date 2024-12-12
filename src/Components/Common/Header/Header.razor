@@ -2,7 +2,7 @@
 @namespace Aegis.Web.Components.Common
 @using Aegis.Web.Components.Layout
 
-<header class="container relative z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
+<header class="container z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
     <img src="@((IsDarkMode ? "/images/icons/aegis-dark-logo.png" : "/images/icons/aegis-light-logo.png"))"
         alt="aegis logo" className="h-full" />
     <ul class="hidden gap-12 items-center lg:flex">
@@ -38,9 +38,32 @@
             <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
         </MudButton>
     </div>
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer"
+        class="block z-20 text-[var(--mud-palette-white)] lg:hidden" />
 </header>
+
+
+<MudDrawer @bind-Open="@_open" Overlay="true" Elevation="1" Variant="@DrawerVariant.Responsive" Anchor="Anchor.End"
+    class="fixed -mt-[calc(4rem+50px)] lg:hidden">
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6">My App</MudText>
+    </MudDrawerHeader>
+    <MudDivider class="" />
+    <MudNavMenu>
+        <MudNavLink Match="NavLinkMatch.All">HOME</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All">HOW IT WORKS</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All">ABOUT US</MudNavLink>
+    </MudNavMenu>
+</MudDrawer>
 
 @code {
     [CascadingParameter] public bool IsDarkMode { get; set; }
+
+    private bool _open;
+
+    private void ToggleDrawer()
+    {
+        _open = !_open;
+    }
 
 }
