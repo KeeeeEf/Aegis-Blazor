@@ -1,4 +1,5 @@
 ﻿@using Aegis.Web.Components.Common
+@using System.Windows;
 @page "/"
 
 @namespace Aegis.Web.Components.Pages
@@ -19,7 +20,7 @@
         <div class="w-[14rem] mx-auto p-[2px] rounded-[50px]
         bg-gradient-to-r from-[var(--mud-palette-info-lighten)] to-[var(--mud-palette-info)]
         ">
-            <MudButton Variant="Variant.Filled" class="w-full rounded-[50px] bg-[var(--mud-palette-white)]">
+            <MudButton Variant="Variant.Filled"  class="w-full rounded-[50px] !bg-[var(--mud-palette-white)]">
                 <MudText class="text-base font-bold text-[var(--mud-palette-black)]">START STAKING NOW</MudText>
             </MudButton>
         </div>
@@ -131,13 +132,13 @@
                 </div>
             </article>
             <div 
-            style="@((isTransitioning ? $"transform: translateX(-{count * 27 + 0.08}rem); transition: transform 0.3s ease-in;" : "transform: none;"))"
-            class="flex flex-nowrap ml-[calc(50vw-12rem)] gap-x-[calc(50vw-12rem)] sm:gap-x-[calc(50vw-13.5rem)] sm:ml-[calc(50vw-13.5rem)] lg:ml-[27rem] lg:gap-x-0">
-                @for (int i = 0; i < carousel.Cards.Count; i++)
+            style="@((IsTransitioning ? $"transform: translateX(-{Count * 30.5 + 0.08}rem);" + " transition: transform 0.3s ease-in;" : "transform: none;"))"
+            class="flex flex-nowrap ml-[calc(50vw-12rem)] gap-x-14 sm:ml-[calc(50vw-13.5rem)] lg:ml-[27rem]">
+                @for (int i = 0; i < Carousel.Cards.Count; i++)
                 {
-                    var card = carousel.Cards[i];
+                    var card = Carousel.Cards[i];
                     <MudCard 
-                        style="@((isTransitioning && i <= count) 
+                        style="@((IsTransitioning && i <= Count) 
                             ? $"transform: scale(0.92); transition: transform 0.3s ease-in;" 
                             : (i < 1 
                                 ? "transform: scale(0.92);" 
@@ -152,20 +153,20 @@
                 }
             </div>
             <ul class="flex gap-x-8 mt-8 justify-center lg:ml-[28rem] lg:w-[calc(27rem*0.92)]">
-                <button class="h-8 w-8 rounded-full @((0 == newIDX) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(0, newIDX)"
+                <button class="h-8 w-8 rounded-full @((0 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                        @onclick="() => CarouselTransition(0, NewIdx)"
                          />
-                <button class="h-8 w-8 rounded-full @((1 == newIDX) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(1, newIDX)"
+                <button class="h-8 w-8 rounded-full @((1 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                        @onclick="() => CarouselTransition(1, NewIdx)"
                          />
-                <button class="h-8 w-8 rounded-full @((2 == newIDX) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(2, newIDX)"
+                <button class="h-8 w-8 rounded-full @((2 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                        @onclick="() => CarouselTransition(2, NewIdx)"
                          />
-                <button class="h-8 w-8 rounded-full @((3 == newIDX) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(3, newIDX)"
+                <button class="h-8 w-8 rounded-full @((3 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                        @onclick="() => CarouselTransition(3, NewIdx)"
                          />
-                <button class="h-8 w-8 rounded-full @((4 == newIDX) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(4, newIDX)"
+                <button class="h-8 w-8 rounded-full @((4 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                        @onclick="() => CarouselTransition(4, NewIdx)"
                          />
             </ul>
         </div>
@@ -400,33 +401,34 @@
 @*(TEMPORARY). Will remove -Ivan*@
 @code {
     [CascadingParameter] public bool IsDarkMode { get; set; }
-    public int newIDX = 0;
-    public int count = 0;
-    public bool isCooldown = false;
-    public bool isTransitioning = false;
+    public int NewIdx = 0;
+    public int Count = 0;
+    public bool IsCooldown = false;
+    public bool IsTransitioning = false;
 
-    public async Task CarouselTransition(int oldIDX, int newIDX) {
+    public async Task CarouselTransition(int OldIDX, int NewIdx) {
         
-        if (isCooldown) return;
-        count = (oldIDX - newIDX + 5) % 5;
+        if (IsCooldown) return;
+        Count = (OldIDX - NewIdx + 5) % 5;
 
-        this.newIDX = oldIDX; 
+        this.NewIdx = OldIDX; 
         
         // Append Carousel based on count
-        if (count != 0) 
+        if (Count != 0) 
         {
-            var cardsToAppend = carousel.Cards.Take(count).ToList();
-            carousel.Cards.AddRange(cardsToAppend);
+            var cardsToAppend = Carousel.Cards.Take(Count).ToList();
+            Carousel.Cards.AddRange(cardsToAppend);
         }
 
-        isTransitioning = true;
-        isCooldown = true;
-    
+        IsTransitioning = true;
+        IsCooldown = true;
+
+        // After 3 seconds, delete the pushed cards
         await Task.Delay(300);
         
-        carousel.Cards = carousel.Cards.Skip(count).ToList();
-        isTransitioning = false;
-        isCooldown = false;
+        Carousel.Cards = Carousel.Cards.Skip(Count).ToList();
+        IsTransitioning = false;
+        IsCooldown = false;
 
         StateHasChanged();
     }
@@ -438,11 +440,11 @@
         public string? Description { get; set; }
     }
 
-    public class Carousel
+    public class CarouselItems
     {
         public List<CarouselCardDetails> Cards { get; set; } = new List<CarouselCardDetails>();
 
-        public Carousel()
+        public CarouselItems()
         {
             Cards = new List<CarouselCardDetails>
             {
@@ -455,6 +457,6 @@
         }
     }
 
-    public Carousel carousel = new Carousel();
+    public CarouselItems Carousel = new CarouselItems();
 
 }

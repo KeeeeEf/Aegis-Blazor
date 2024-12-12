@@ -28,31 +28,38 @@
             HOW IT WORKS
         </MudText>
     </ul>
-    <div class="relative w-[150px] h-[45px] rounded-full overflow-hidden hidden lg:block 
-    before:absolute before:content-[''] 
-    before:bg-[conic-gradient(from_90deg,_var(--mud-palette-info-lighten)_10%,_var(--mud-palette-info)_20%,_transparent_50%)] 
-    before:w-[400%] before:h-[400%] before:-left-[150%] before:-top-[150%] 
-    before:animate-[spin_3s_linear_infinite]">
-        <MudButton
-            class="absolute w-[calc(100%-5px)] h-[calc(100%-5px)] rounded-[70px] bg-[var(--mud-palette-primary)] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <MudText class="text-base font-medium text-[var(--mud-palette-white)]">OPEN APP</MudText>
-        </MudButton>
-    </div>
+    <MudButton Variant="Variant.Filled"
+        Class="animate-rotate-border !font-normal !normal-case !rounded-full w-[150px] h-[45px] text-[var(--mud-palette-white)] !p-[2px] hidden lg:block"
+        Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)">
+        <div
+            class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[var(--mud-palette-primary)] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
+            OPEN APP
+        </div>
+    </MudButton>
     <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer"
         class="block z-20 text-[var(--mud-palette-white)] lg:hidden" />
 </header>
 
 
 <MudDrawer @bind-Open="@_open" Overlay="true" Elevation="1" Variant="@DrawerVariant.Responsive" Anchor="Anchor.End"
-    class="fixed -mt-[calc(4rem+50px)] lg:hidden">
-    <MudDrawerHeader>
-        <MudText Typo="Typo.h6">My App</MudText>
+    class="fixed -mt-[calc(4rem+50px)] bg-[var(--mud-palette-primary)] lg:hidden">
+    <MudDrawerHeader class="py-10">
     </MudDrawerHeader>
-    <MudDivider class="" />
-    <MudNavMenu>
-        <MudNavLink Match="NavLinkMatch.All">HOME</MudNavLink>
-        <MudNavLink Match="NavLinkMatch.All">HOW IT WORKS</MudNavLink>
-        <MudNavLink Match="NavLinkMatch.All">ABOUT US</MudNavLink>
+    <MudNavMenu class="px-4">
+        <MudNavLink Match="NavLinkMatch.All"
+            class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">HOME</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All"
+            class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">HOW IT WORKS</MudNavLink>
+        <MudNavLink Match="NavLinkMatch.All"
+            class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">ABOUT US</MudNavLink>
+        <MudButton Variant="Variant.Filled"
+            Class="animate-rotate-border !font-normal !normal-case !rounded-md w-full h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
+            Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)">
+            <div
+                class="flex h-[40px] w-full text-base font-medium rounded-md bg-[var(--mud-palette-primary)] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
+                OPEN APP
+            </div>
+        </MudButton>
     </MudNavMenu>
 </MudDrawer>
 
