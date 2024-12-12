@@ -1,10 +1,10 @@
 ﻿@using Aegis.Web.Components.Common
+@using Aegis.Web.Models
 
 @page "/"
 
 @namespace Aegis.Web.Components.Pages
 
-@* First Section *@
 <div class="relative h-auto xl:h-screen 2xl:h-auto bg-[var(--mud-palette-primary)]">
     <Header />
     <article
@@ -38,7 +38,6 @@
 <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/first-section-arc-dark.svg');" : "background-image: url('/images/backgrounds/first-section-arc-light.svg');"))"
     class="relative bg-[size:100%_100%] bg-center bg-no-repeat h-56 md:h-72 2xl:h-48" />
 
-@* Second Section *@
 <section
     class="container grid grid-cols-1 place-items-center mt-20 w-full gap-10 max-w-screen-xl sm:grid-cols-2 lg:gap-6 lg:place-items-end xl:gap-6 lg:grid-cols-3">
     <article
@@ -108,7 +107,6 @@
 
 </section>
 
-@* Third Section *@
 <section>
     <div style="@((IsDarkMode ? "background-image: url('/images/backgrounds/third-section-top-arc-dark.svg');" : "background-image: url('/images/backgrounds/third-section-top-arc-light.svg');"))"
         class="relative mt-20 w-screen bg-[size:100%_100%] bg-center bg-no-repeat h-52 md-72 lg:h-48" />
@@ -133,9 +131,9 @@
             </article>
             <div style="@((IsTransitioning ? $"transform: translateX(-{Count * 30.5 + 0.08}rem);" + " transition: transform 0.3s ease-in;" : "transform: none;"))"
                 class="flex flex-nowrap ml-[calc(50vw-12rem)] gap-x-14 sm:ml-[calc(50vw-13.5rem)] lg:ml-[27rem]">
-                @for (int i = 0; i < Carousel.Cards.Count; i++)
+                @for (int i = 0; i < CarouselCards.Count; i++)
                 {
-                    var Card = Carousel.Cards[i];
+                    Carousel Card = CarouselCards[i];
                     <MudCard style="@((IsTransitioning && i <= Count) 
                             ? $"transform: scale(0.92); transition: transform 0.3s ease-in;" 
                             : (i < 1 
@@ -186,24 +184,23 @@
 
 <section
     class="container flex flex-col justify-center w-full mt-16 max-w-screen-xl lg:flex-row lg:flex-wrap lg:gap-y-12 lg:!justify-end">
-    @* Fourth Section *@
     <ul
         class="grid grid-cols-6 w-full h-28 place-content-center lg:h-[28rem] lg:w-[13rem] lg:grid-cols-1 lg:grid-rows-6 text-base">
         @for (int i = 0; i < Quarters.Count; i++)
         {
-            var quarter = Quarters[i];
+            Timeline quarter = Quarters[i];
             <li class="w-full h-full cursor-pointer group grid grid-rows-2 lg:grid-cols-[2fr_1fr] lg:grid-rows-1"
-                @onmouseover="@(() => HoveredQuarter = $"{quarter.Year} | {quarter.QuarterName}")"
+                @onmouseover="@(() => HoveredQuarter = $"{quarter.Year} | {quarter.Quarter}")"
                 @onmouseleave="@(() => HoveredQuarter = "2024 | Q1")">
                 <div class="w-full h-full flex justify-center items-center lg:justify-end">
-                    <span class="transition-all lg:hidden @GetHoverClass(quarter)">@quarter.QuarterName</span>
+                    <span class="transition-all lg:hidden @GetHoverClass(quarter)">@quarter.Quarter</span>
                     <span class="@GetHoverClass(quarter) hidden transition-all lg:block">
-                        @quarter.Year | @quarter.QuarterName
+                        @quarter.Year | @quarter.Quarter
                     </span>
                 </div>
                 <div class="relative flex flex-col items-center gap-y-4 w-full h-full lg:!justify-center">
                     <div
-                        class="circle relative z-20 h-2 w-2 rounded-full sm:h-4 sm:w-4 @((HoveredQuarter == $"{quarter.Year} | {quarter.QuarterName}" ? "scale-[200%] duration-300 bg-[#0033AD]" : "bg-[#D9D9D9]"))" />
+                        class="circle relative z-20 h-2 w-2 rounded-full sm:h-4 sm:w-4 @((HoveredQuarter == $"{quarter.Year} | {quarter.Quarter}" ? "scale-[200%] duration-300 bg-[#0033AD]" : "bg-[#D9D9D9]"))" />
                     @if (i < Quarters.Count - 1)
                     {
                         <div
@@ -282,7 +279,6 @@
 
 <section
     class="relative flex flex-col items-center bg-[var(--mud-palette-primary-lighten)] text-[var(--mud-palette-white)]">
-    @* Fifth Section *@
     <div class="container flex flex-wrap justify-between items-center max-w-screen-xl">
         <MudText Class="w-full my-28 text-center text-4xl font-semibold md:text-5xl">
             Team
@@ -307,12 +303,13 @@
                     {
                         <MudExpansionPanel @bind-Expanded="@PanelStates![index]" HideIcon="true" Class="bg-white text-[#323E59] mt-8 shadow-none 
                             [&_.mud-expand-panel-header]:p-0
+                            [&_.mud-expand-panel-content]:!px-0
                             [&_.mud-expand-panel-content]:2xl:!pl-0 
                             [&_.mud-expand-panel-content]:2xl:!pr-16 
                             [&_.mud-expand-panel-content]:!py-4">
                             <TitleContent>
                                 <div class="flex items-center justify-between mb-8 gap-x-4">
-                                    <MudText class="text-xl font-semibold md:text-2xl">@panel.Title</MudText>
+                                    <MudText class="text-xl font-semibold md:text-2xl">@panel.Question</MudText>
                                     <MudImage
                                         Src="@((!PanelStates[index] ? "images/icons/faq-minus.png" : "images/icons/faq-plus.png"))"
                                         Alt="faq icon" class="h-7 w-7 object-contain" />
@@ -321,17 +318,15 @@
                             <ChildContent>
                                 <p
                                     class="text-base md:text-lg font-light overflow-hidden transition-all duration-300 ease-in-out">
-                                    @panel.Content
+                                    @panel.Answer
                                 </p>
                             </ChildContent>
                         </MudExpansionPanel>
                         <MudDivider Class="bg-[#D9D9D9]" />
                     }
                 </MudExpansionPanels>
-
             </MudPaper>
         </article>
     </div>
 </section>
-
 <Footer />

@@ -1,7 +1,8 @@
+@inherits LayoutComponentBase
 @namespace Aegis.Web.Components.Common
+@using Aegis.Web.Components.Layout
 
 <footer class="bg-[#000F33] text-[var(--mud-palette-white)]">
-    @* Footer Section. Reminder: Move to Footer in Common *@
     <article
         class="container flex flex-wrap justify-center gap-9 py-12 max-w-screen-xl md:justify-between md:items-start">
         <div class="w-[60%] flex flex-col items-center gap-y-6 md:w-1/5">
@@ -38,11 +39,12 @@
                 <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
             </li>
         </ul>
-        <MudButton Variant="Variant.Filled"
+        <MudButton
+            Variant="Variant.Filled"
             Class="animate-rotate-border !font-normal !normal-case !rounded-full w-[150px] h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
-            Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)">
-            <div
-                class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[#000F33] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
+            Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)"
+        >
+            <div class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[#000F33] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
                 OPEN APP
             </div>
         </MudButton>
