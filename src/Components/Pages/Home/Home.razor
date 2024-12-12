@@ -1,5 +1,5 @@
 ﻿@using Aegis.Web.Components.Common
-@using System.Windows;
+
 @page "/"
 
 @namespace Aegis.Web.Components.Pages
@@ -20,7 +20,7 @@
         <div class="w-[14rem] mx-auto p-[2px] rounded-[50px]
         bg-gradient-to-r from-[var(--mud-palette-info-lighten)] to-[var(--mud-palette-info)]
         ">
-            <MudButton Variant="Variant.Filled"  class="w-full rounded-[50px] !bg-[var(--mud-palette-white)]">
+            <MudButton Variant="Variant.Filled" class="w-full rounded-[50px] !bg-[var(--mud-palette-white)]">
                 <MudText class="text-base font-bold text-[var(--mud-palette-black)]">START STAKING NOW</MudText>
             </MudButton>
         </div>
@@ -80,7 +80,7 @@
         class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:items-start lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
         <img src="images/icons/cardano-health.png" class="h-12 w-12 object-contain" />
         <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Cardano Health
-         Network</MudText>
+            Network</MudText>
         <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit amet,
             consectetur adipiscing elit.
         </MudText>
@@ -131,43 +131,42 @@
                         alt="brightness icon" />
                 </div>
             </article>
-            <div 
-            style="@((IsTransitioning ? $"transform: translateX(-{Count * 30.5 + 0.08}rem);" + " transition: transform 0.3s ease-in;" : "transform: none;"))"
-            class="flex flex-nowrap ml-[calc(50vw-12rem)] gap-x-14 sm:ml-[calc(50vw-13.5rem)] lg:ml-[27rem]">
+            <div style="@((IsTransitioning ? $"transform: translateX(-{Count * 30.5 + 0.08}rem);" + " transition: transform 0.3s ease-in;" : "transform: none;"))"
+                class="flex flex-nowrap ml-[calc(50vw-12rem)] gap-x-14 sm:ml-[calc(50vw-13.5rem)] lg:ml-[27rem]">
                 @for (int i = 0; i < Carousel.Cards.Count; i++)
                 {
-                    var card = Carousel.Cards[i];
-                    <MudCard 
-                        style="@((IsTransitioning && i <= Count) 
+                    var Card = Carousel.Cards[i];
+                    <MudCard style="@((IsTransitioning && i <= Count) 
                             ? $"transform: scale(0.92); transition: transform 0.3s ease-in;" 
                             : (i < 1 
                                 ? "transform: scale(0.92);" 
                                 : "transform: scale(0.75);"))"
                         class="flex flex-col items-start flex-shrink-0 h-[35rem] w-[24rem] rounded-2xl p-8 pr-12 bg-[var(--mud-palette-secondary)] sm:w-[27rem]">
                         <MudCardContent>
-                            <img src="@card.Image" alt="@card.Name" />
-                            <MudText class="text-3xl font-semibold mt-6">@card.Name</MudText>
-                            <MudText class="text-base leading-7 mt-6">@card.Description</MudText>
+                            <img src="@((string.IsNullOrEmpty(Card.Image)) ? (IsDarkMode ? "/images/icons/sada-icon-large-dark.png" : "/images/icons/sada-icon-large-light.png") : Card.Image)"
+                                alt="@Card.Name" />
+                            <MudText class="text-3xl font-semibold mt-6">@Card.Name</MudText>
+                            <MudText class="text-base leading-7 mt-6">@Card.Description</MudText>
                         </MudCardContent>
                     </MudCard>
                 }
             </div>
             <ul class="flex gap-x-8 mt-8 justify-center lg:ml-[28rem] lg:w-[calc(27rem*0.92)]">
-                <button class="h-8 w-8 rounded-full @((0 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(0, NewIdx)"
-                         />
-                <button class="h-8 w-8 rounded-full @((1 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(1, NewIdx)"
-                         />
-                <button class="h-8 w-8 rounded-full @((2 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(2, NewIdx)"
-                         />
-                <button class="h-8 w-8 rounded-full @((3 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(3, NewIdx)"
-                         />
-                <button class="h-8 w-8 rounded-full @((4 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
-                        @onclick="() => CarouselTransition(4, NewIdx)"
-                         />
+                <button
+                    class="h-8 w-8 rounded-full @((0 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                    @onclick="() => CarouselTransition(0, NewIdx)" />
+                <button
+                    class="h-8 w-8 rounded-full @((1 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                    @onclick="() => CarouselTransition(1, NewIdx)" />
+                <button
+                    class="h-8 w-8 rounded-full @((2 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                    @onclick="() => CarouselTransition(2, NewIdx)" />
+                <button
+                    class="h-8 w-8 rounded-full @((3 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                    @onclick="() => CarouselTransition(3, NewIdx)" />
+                <button
+                    class="h-8 w-8 rounded-full @((4 == NewIdx) ? "bg-[var(--mud-palette-white)]" : "bg-[var(--mud-palette-gray-default)]")"
+                    @onclick="() => CarouselTransition(4, NewIdx)" />
             </ul>
         </div>
     </div>
@@ -236,14 +235,9 @@
             </MudText>
             <div class="relative w-[18rem] h-auto mx-auto flex items-center justify-center my-6 sm:!w-[27rem] lg:!h-[32rem] lg:!ml-auto lg:!mr-0 lg:!w-[50%]"
                 style="aspect-ratio: 1;">
-                <MudChart 
-                    ChartType="ChartType.Donut" 
-                    InputData="[235, 40, 45, 20, 20]"
-                    Class="[&_.mud-chart-legend]:hidden !w-[120%] !h-[120%]" 
-                    Width="100%" 
-                    Height="100%"
-                    ChartOptions="@(new() { ChartPalette = new[] { "#0F3CAE", "#517FF3", "#A5D0E8", "#E9DC94", "#9747FF" } })"
-                />
+                <MudChart ChartType="ChartType.Donut" InputData="[235, 40, 45, 20, 20]"
+                    Class="[&_.mud-chart-legend]:hidden !w-[120%] !h-[120%]" Width="100%" Height="100%"
+                    ChartOptions="@(new() { ChartPalette = new[] { "#0F3CAE", "#517FF3", "#A5D0E8", "#E9DC94", "#9747FF" } })" />
                 <div class="absolute flex flex-col items-center justify-center gap-4 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10/12 bg-[#F3F3F3] text-[var(--mud-palette-gray-dark)]"
                     style="aspect-ratio: 1;">
                     <h4 class="text-1xl font-semibold md:text-2xl">
@@ -254,7 +248,7 @@
                 </div>
             </div>
             <ul class="w-[calc(90%-5vw)] mx-auto md:w-[90%] lg:px-0 lg:w-[calc(32%)] lg:mx-[6%] text-black">
-                @foreach(var datum in TokenomicList.Select((value, index) => new { value, index }))
+                @foreach (var datum in TokenomicList.Select((value, index) => new { value, index }))
                 {
                     <li class="flex flex-wrap justify-between gap-y-4 pt-4 pb-4">
                         <h6 class="text-base w-12 font-bold md:text-xl" style="color: @datum.value.Color">
@@ -340,123 +334,4 @@
     </div>
 </section>
 
-<footer class="bg-[#000F33] text-[var(--mud-palette-white)]">
-    @* Footer Section. Reminder: Move to Footer in Common *@
-    <article
-        class="container flex flex-wrap justify-center gap-9 py-12 max-w-screen-xl md:justify-between md:items-start">
-        <div class="w-[60%] flex flex-col items-center gap-y-6 md:w-1/5">
-            <MudImage Src="/images/icons/aegis-light-logo.png" Alt="aegis icon" Class="h-full" />
-            <div class="flex gap-3 w-full justify-center">
-                <MudImage Src="/images/icons/facebook-icon.png" Alt="facebook icon" Class="h-12 w-12" />
-                <div class="h-12 w-12 rounded-full flex items-center justify-center bg-[#182749]">
-                    <MudIcon Icon="@Icons.Custom.Brands.X" class="w-4 h-4" />
-                </div>
-                <MudImage Src="/images/icons/discord-icon.png" Alt="discord icon" class="h-12 w-12" />
-            </div>
-        </div>
-        <ul class="w-[35%] flex flex-col gap-2 md:pl-[5%] md:w-1/5">
-            <MudText class="flex justify-normal text-lg font-medium md:text-xl">
-                PRODUCT
-            </MudText>
-            <li class="flex gap-2 items-center justify-normal">
-                <span class="text-base font-light md:text-lg">Features</span>
-                <MudImage src="/images/icons/arrow-up-right.svg" Class="h-4 w-3 object-contain" alt="facebook icon" />
-            </li>
-            <li class="flex gap-2 items-center justify-normal">
-                <span class="text-base font-light md:text-lg md:block md:w-16 xl:inline xl:w-auto">
-                    How It Works
-                </span>
-                <MudImage src="/images/icons/arrow-up-right.svg" Class="h-4 w-3 object-contain" alt="facebook icon" />
-            </li>
-        </ul>
-        <ul class="w-[36%] text-right flex flex-col gap-2 md:text-left md:pl-[5%] md:flex-1 md:w-1/5">
-            <MudText class="text-lg font-medium md:text-xl">
-                COMPANY
-            </MudText>
-            <li class="flex gap-2 items-center justify-end md:!justify-normal">
-                <span class="text-base font-light md:text-lg">About Us</span>
-                <MudImage src="/images/icons/arrow-up-right.svg" class="h-4 w-3 object-contain" alt="facebook icon" />
-            </li>
-        </ul>
-        <MudButton
-            Variant="Variant.Filled"
-            Class="animate-rotate-border !font-normal !normal-case !rounded-full w-[150px] h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
-            Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)"
-        >
-            <div class="flex w-[145px] h-[40px] text-base font-medium rounded-full bg-[#000F33] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
-                OPEN APP
-            </div>
-        </MudButton>
-    </article>
-    <div class="border-t bg-white opacity-30" />
-    <article class="container max-w-screen-xl w-full px-[min(7.5vw,96px)] flex justify-between gap-12 py-12 opacity-30">
-        <span class="text-sm md:text-base">AEGIS, 2024</span>
-        <span class="flex-1 text-right text-sm md:text-base">
-            Terms & Conditions
-        </span>
-        <span class="text-sm md:text-base">Privacy Policy</span>
-    </article>
-</footer>
-
-@*(TEMPORARY). Will remove -Ivan*@
-@code {
-    [CascadingParameter] public bool IsDarkMode { get; set; }
-    public int NewIdx = 0;
-    public int Count = 0;
-    public bool IsCooldown = false;
-    public bool IsTransitioning = false;
-
-    public async Task CarouselTransition(int OldIDX, int NewIdx) {
-        
-        if (IsCooldown) return;
-        Count = (OldIDX - NewIdx + 5) % 5;
-
-        this.NewIdx = OldIDX; 
-        
-        // Append Carousel based on count
-        if (Count != 0) 
-        {
-            var cardsToAppend = Carousel.Cards.Take(Count).ToList();
-            Carousel.Cards.AddRange(cardsToAppend);
-        }
-
-        IsTransitioning = true;
-        IsCooldown = true;
-
-        // After 3 seconds, delete the pushed cards
-        await Task.Delay(300);
-        
-        Carousel.Cards = Carousel.Cards.Skip(Count).ToList();
-        IsTransitioning = false;
-        IsCooldown = false;
-
-        StateHasChanged();
-    }
-
-    public class CarouselCardDetails
-    {
-        public string? Image { get; set; }
-        public string? Name { get; set; }
-        public string? Description { get; set; }
-    }
-
-    public class CarouselItems
-    {
-        public List<CarouselCardDetails> Cards { get; set; } = new List<CarouselCardDetails>();
-
-        public CarouselItems()
-        {
-            Cards = new List<CarouselCardDetails>
-            {
-                new CarouselCardDetails { Image = "/images/icons/sada-icon-large-light.png", Name = "Stake Your ADA and Receive sADA", Description = "When you stake your ADA through AEGIS, you'll receive SADA (shielded ADA) tokens in return." },
-                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." },
-                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." },
-                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." },
-                new CarouselCardDetails { Image = "/images/icons/sada-circle.png", Name = "Unlock Liquidity with SADA", Description = "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards." }
-            };
-        }
-    }
-
-    public CarouselItems Carousel = new CarouselItems();
-
-}
+<Footer />

@@ -1,6 +1,4 @@
-@inherits LayoutComponentBase
 @namespace Aegis.Web.Components.Common
-@using Aegis.Web.Components.Layout
 
 <header class="container z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
     <img src="@((IsDarkMode ? "/images/icons/aegis-dark-logo.png" : "/images/icons/aegis-light-logo.png"))"
@@ -36,24 +34,24 @@
             OPEN APP
         </div>
     </MudButton>
-    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer"
-        class="block z-20 text-[var(--mud-palette-white)] lg:hidden" />
+    <MudIcon Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" @onclick="() => ToggleDrawer()"
+        class="block z-20 cursor-pointer lg:hidden" Style="color: var(--mud-palette-white);" />
 </header>
 
 
 <MudDrawer @bind-Open="@_open" Overlay="true" Elevation="1" Variant="@DrawerVariant.Responsive" Anchor="Anchor.End"
     class="fixed -mt-[calc(4rem+50px)] bg-[var(--mud-palette-primary)] lg:hidden">
-    <MudDrawerHeader class="py-10">
+    <MudDrawerHeader class="pt-10 px-4 py-4 flex justify-end">
+        <MudIcon Icon="@Icons.Material.Filled.Close" Title="Close" @onclick="() => ToggleDrawer()"
+            class="cursor-pointer" Style="color: var(--mud-palette-white);" />
     </MudDrawerHeader>
-    <MudNavMenu class="px-4">
-        <MudNavLink Match="NavLinkMatch.All"
-            class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">HOME</MudNavLink>
-        <MudNavLink Match="NavLinkMatch.All"
-            class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">HOW IT WORKS</MudNavLink>
-        <MudNavLink Match="NavLinkMatch.All"
-            class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">ABOUT US</MudNavLink>
+    <MudNavMenu class="px-4 bg-[var(--mud-palette-primary)]">
+        <MudText class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">HOME</MudText>
+        <MudText class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">HOW IT WORKS
+        </MudText>
+        <MudText class="mt-4 cursor-pointer text-base text-[var(--mud-palette-white)] font-medium">ABOUT US</MudText>
         <MudButton Variant="Variant.Filled"
-            Class="animate-rotate-border !font-normal !normal-case !rounded-md w-full h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
+            Class="mt-4 animate-rotate-border !font-normal !normal-case !rounded-md w-full h-[45px] text-[var(--mud-palette-white)] !p-[2px]"
             Style="background: conic-gradient(from var(--border-angle), transparent 25%, var(--mud-palette-info-lighten), var(--mud-palette-info) 99%, transparent)">
             <div
                 class="flex h-[40px] w-full text-base font-medium rounded-md bg-[var(--mud-palette-primary)] items-center justify-center py-[5px] px-[1px] xs:px-[10px]">
@@ -62,15 +60,3 @@
         </MudButton>
     </MudNavMenu>
 </MudDrawer>
-
-@code {
-    [CascadingParameter] public bool IsDarkMode { get; set; }
-
-    private bool _open;
-
-    private void ToggleDrawer()
-    {
-        _open = !_open;
-    }
-
-}
