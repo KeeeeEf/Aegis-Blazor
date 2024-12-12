@@ -127,7 +127,7 @@ public partial class Home
 
         if (Count != 0)
         {
-            var cardsToAppend = CarouselCards.Take(Count).ToList();
+            List<Carousel> cardsToAppend = CarouselCards.Take(Count).ToList();
             CarouselCards.AddRange(cardsToAppend);
         }
 

@@ -133,7 +133,7 @@
                 class="flex flex-nowrap ml-[calc(50vw-12rem)] gap-x-14 sm:ml-[calc(50vw-13.5rem)] lg:ml-[27rem]">
                 @for (int i = 0; i < CarouselCards.Count; i++)
                 {
-                    var Card = CarouselCards[i];
+                    Carousel Card = CarouselCards[i];
                     <MudCard style="@((IsTransitioning && i <= Count) 
                             ? $"transform: scale(0.92); transition: transform 0.3s ease-in;" 
                             : (i < 1 
