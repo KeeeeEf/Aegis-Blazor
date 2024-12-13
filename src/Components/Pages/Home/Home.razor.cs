@@ -23,22 +23,22 @@ public partial class Home
             Description: "When you stake your ADA through AEGIS, you'll receive SADA (shielded ADA) tokens in return."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),

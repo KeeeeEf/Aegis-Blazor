@@ -77,7 +77,7 @@
 
     <MudCard
         class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:items-start lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
-        <img src="images/icons/safer-staking.png" class="h-12 w-12 object-contain" />
+        <img src="images/icons/safer-staking.svg" class="h-12 w-12 object-contain" />
         <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Safer Staking
         </MudText>
         <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
@@ -107,7 +107,7 @@
 
     <MudCard
         class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:items-start lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
-        <img src="images/icons/unlock-liquidity.png" class="h-12 w-12 object-contain" />
+        <img src="images/icons/unlock-liquidity.svg" class="h-12 w-12 object-contain" />
         <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">Unlock Liquidity
         </MudText>
         <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)] md:text-lg">Lorem ipsum dolor sit
@@ -117,7 +117,7 @@
 
     <MudCard
         class="h-72 w-full rounded-2xl cursor-pointer py-8 px-8 flex flex-col items-center gap-y-2 text-center bg-[var(--mud-palette-secondary-lighten)] transform transition-transform duration-300 ease-in-out hover:scale-110 lg:items-start lg:pl-10 lg:pr-6 lg:w-full lg:text-left">
-        <img src="images/icons/sada-icon-small.png" class="h-12 w-12 object-contain" />
+        <img src="images/icons/sada-icon-small.svg" class="h-12 w-12 object-contain" />
         <MudText class="mt-4 text-xl text-[var(--mud-palette-gray-dark)] font-semibold md:text-1xl">sADA
             (shielded ADA)</MudText>
         <MudText class="mt-4 text-base text-[var(--mud-palette-gray-dark)]">Lorem ipsum dolor sit
@@ -161,7 +161,7 @@
                                 : "transform: scale(0.75);"))"
                         class="flex flex-col items-start flex-shrink-0 h-[35rem] w-[24rem] rounded-2xl p-8 pr-12 bg-[var(--mud-palette-secondary)] sm:w-[27rem]">
                         <MudCardContent>
-                            <img src="@((string.IsNullOrEmpty(Card.Image)) ? (IsDarkMode ? "/images/icons/sada-icon-large-dark.png" : "/images/icons/sada-icon-large-light.png") : Card.Image)"
+                            <img src="@((string.IsNullOrEmpty(Card.Image)) ? (IsDarkMode ? "/images/icons/sada-icon-large-dark.svg" : "/images/icons/sada-icon-large-light.svg") : Card.Image)"
                                 alt="@Card.Name" />
                             <MudText class="text-3xl font-semibold mt-6">@Card.Name</MudText>
                             <MudText class="text-base leading-7 mt-6">@Card.Description</MudText>
@@ -331,7 +331,7 @@
                                 <div class="flex items-center justify-between mb-8 gap-x-4">
                                     <MudText class="text-xl font-semibold md:text-2xl">@panel.Question</MudText>
                                     <MudImage
-                                        Src="@((!PanelStates[index] ? "images/icons/faq-minus.png" : "images/icons/faq-plus.png"))"
+                                        Src="@((!PanelStates[index] ? "images/icons/faq-minus.png" : "images/icons/faq-plus.svg"))"
                                         Alt="faq icon" class="h-7 w-7 object-contain" />
                                 </div>
                             </TitleContent>
