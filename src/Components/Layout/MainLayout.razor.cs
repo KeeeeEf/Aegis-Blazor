@@ -49,7 +49,7 @@ public partial class MainLayout
         },
     };
 
-    public bool IsDarkMode = true;
+    public bool IsDarkMode = false;
     public void ThemeSwitcher()
     {
         IsDarkMode = !IsDarkMode;
