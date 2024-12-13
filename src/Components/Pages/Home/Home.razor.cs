@@ -5,7 +5,7 @@ namespace Aegis.Web.Components.Pages;
 
 public partial class Home
 {
-    [CascadingParameter] 
+    [CascadingParameter]
     protected bool IsDarkMode { get; set; }
     protected List<bool>? PanelStates { get; set; }
     protected List<Faq>? PanelContents { get; set; }
@@ -117,7 +117,7 @@ public partial class Home
         return HoveredQuarter == displayText ? "text-2xl font-semibold" : "text-lg";
     }
 
-        protected async Task CarouselTransition(int OldIDX, int NewIdx)
+    protected async Task CarouselTransition(int OldIDX, int NewIdx)
     {
 
         if (IsCooldown) return;
@@ -140,6 +140,5 @@ public partial class Home
         IsTransitioning = false;
         IsCooldown = false;
 
-        StateHasChanged();
     }
 }
