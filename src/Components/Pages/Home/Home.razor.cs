@@ -5,7 +5,7 @@ namespace Aegis.Web.Components.Pages;
 
 public partial class Home
 {
-    [CascadingParameter] 
+    [CascadingParameter]
     protected bool IsDarkMode { get; set; }
     protected List<bool>? PanelStates { get; set; }
     protected List<Faq>? PanelContents { get; set; }
@@ -23,22 +23,22 @@ public partial class Home
             Description: "When you stake your ADA through AEGIS, you'll receive SADA (shielded ADA) tokens in return."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
         new Carousel (
-            Image: "/images/icons/sada-circle.png",
+            Image: "/images/icons/sada-circle.svg",
             Name: "Unlock Liquidity with SADA",
             Description: "Unlike traditional staking, AEGIS allows you to unlock liquidity with your SADA tokens. Even while your original ADA remains staked and earning rewards, you can use sADA to trade, provide liquidity, or participate in Dex without sacrificing your staking rewards."
         ),
@@ -117,7 +117,7 @@ public partial class Home
         return HoveredQuarter == displayText ? "text-2xl font-semibold" : "text-lg";
     }
 
-        protected async Task CarouselTransition(int OldIDX, int NewIdx)
+    protected async Task CarouselTransition(int OldIDX, int NewIdx)
     {
 
         if (IsCooldown) return;
@@ -140,6 +140,5 @@ public partial class Home
         IsTransitioning = false;
         IsCooldown = false;
 
-        StateHasChanged();
     }
 }
