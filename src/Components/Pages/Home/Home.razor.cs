@@ -92,7 +92,7 @@ public partial class Home
     protected override void OnInitialized()
     {
         ThemeService.Changed += DoUpdate;
-        
+
         PanelStates = new List<bool> { false, false, false };
 
         PanelContents = new List<Faq>
@@ -142,12 +142,7 @@ public partial class Home
 
     }
 
-    void IDisposable.Dispose()
-    {
-        ThemeService.Changed -= DoUpdate;
-    }
-
-    private void DoUpdate(object sender, EventArgs e)
+    private void DoUpdate(object? sender, EventArgs e)
     {
         InvokeAsync(StateHasChanged);
     }

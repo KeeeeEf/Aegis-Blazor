@@ -55,12 +55,7 @@ public partial class MainLayout
         ThemeService.Changed += DoUpdate;
     }
 
-    void IDisposable.Dispose()
-    {
-        ThemeService.Changed -= DoUpdate;
-    }
-
-    private void DoUpdate(object sender, EventArgs e)
+    private void DoUpdate(object? sender, EventArgs e)
     {
         InvokeAsync(StateHasChanged);
     }

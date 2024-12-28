@@ -13,16 +13,11 @@ public partial class Header {
         ThemeService.Changed += DoUpdate;
     }
 
-    void IDisposable.Dispose()
-    {
-        ThemeService.Changed -= DoUpdate;
-    }
-
-    private void DoUpdate(object sender, EventArgs e)
+    private void DoUpdate(object? sender, EventArgs e)
     {
         InvokeAsync(StateHasChanged);
     }
-    
+
     public void ChangeTheme(){
         ThemeService.IsDarkMode = !ThemeService.IsDarkMode;
         ThemeService.NotifyChanged();
