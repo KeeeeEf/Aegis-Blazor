@@ -1,5 +1,6 @@
 using Aegis.Blazor.Components;
 using MudBlazor.Services;
+using Aegis.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
+builder.Services.AddControllers();
+
+builder.Services.AddSingleton<ThemeService>();
 
 var app = builder.Build();
 

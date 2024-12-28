@@ -1,10 +1,11 @@
 using MudBlazor;
+using Aegis.Web.Services;
 
 namespace Aegis.Web.Components.Layout;
 
-public partial class MainLayout 
+public partial class MainLayout
 {
-    public MudTheme CustomTheme = new()
+    public MudTheme CustomTheme { get; } = new()
     {
         PaletteLight = new PaletteLight()
         {
@@ -49,9 +50,19 @@ public partial class MainLayout
         },
     };
 
-    public bool IsDarkMode = false;
-    public void ThemeSwitcher()
+    protected override void OnInitialized()
     {
-        IsDarkMode = !IsDarkMode;
+        ThemeService.Changed += DoUpdate;
     }
+
+    void IDisposable.Dispose()
+    {
+        ThemeService.Changed -= DoUpdate;
+    }
+
+    private void DoUpdate(object sender, EventArgs e)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
 }

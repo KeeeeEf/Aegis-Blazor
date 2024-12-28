@@ -5,8 +5,6 @@ namespace Aegis.Web.Components.Pages;
 
 public partial class Home
 {
-    [CascadingParameter]
-    protected bool IsDarkMode { get; set; }
     protected List<bool>? PanelStates { get; set; }
     protected List<Faq>? PanelContents { get; set; }
     protected string? HoveredQuarter { get; set; } = "2024 | Q1";
@@ -93,6 +91,8 @@ public partial class Home
 
     protected override void OnInitialized()
     {
+        ThemeService.Changed += DoUpdate;
+        
         PanelStates = new List<bool> { false, false, false };
 
         PanelContents = new List<Faq>
@@ -140,5 +140,15 @@ public partial class Home
         IsTransitioning = false;
         IsCooldown = false;
 
+    }
+
+    void IDisposable.Dispose()
+    {
+        ThemeService.Changed -= DoUpdate;
+    }
+
+    private void DoUpdate(object sender, EventArgs e)
+    {
+        InvokeAsync(StateHasChanged);
     }
 }

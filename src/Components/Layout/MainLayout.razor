@@ -1,20 +1,18 @@
-﻿@inherits LayoutComponentBase
+﻿@using Aegis.Web.Models;
+@using Aegis.Web.Services;
+
+@inject ThemeService ThemeService
+@implements IDisposable
+
+@inherits LayoutComponentBase
 @namespace Aegis.Web.Components.Layout
 
-<MudThemeProvider @bind-IsDarkMode="@IsDarkMode" Theme="CustomTheme" />
+<MudThemeProvider @bind-IsDarkMode="@ThemeService.IsDarkMode" Theme="CustomTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
-<CascadingValue Value="IsDarkMode">
-    <div class="page">
-        <main>
-            <MudButton
-                class="fixed z-50 bottom-[1vh] right-[1vw] md:bottom-[10vh] md:right-[6vw] xl:right-[12vw] 2xl:right-[19.5vw] shadow-2xl rounded-full p-0"
-                @onclick="ThemeSwitcher">
-                <img src="@((IsDarkMode ? "/images/icons/dark-mode.png" : "/images/icons/light-mode.png"))"
-                    class="w-full h-full cursor-pointer shadow-2xl rounded-full" alt="brightness icon" />
-            </MudButton>
-            @Body
-        </main>
-    </div>
-</CascadingValue>
+<div class="page">
+    <main>
+        @Body
+    </main>
+</div>

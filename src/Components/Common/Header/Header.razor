@@ -1,7 +1,13 @@
+@using Aegis.Web.Models;
+@using Aegis.Web.Services;
+
+@inject ThemeService ThemeService
+@implements IDisposable
+
 @namespace Aegis.Web.Components.Common
 
 <header class="container z-20 py-8 flex justify-between items-center max-w-screen-xl lg:py-16 2xl:h-auto">
-    <img src="@((IsDarkMode ? "/images/icons/aegis-dark-logo.svg" : "/images/icons/aegis-light-logo.svg"))"
+    <img src="@((ThemeService.IsDarkMode ? "/images/icons/aegis-dark-logo.svg" : "/images/icons/aegis-light-logo.svg"))"
         alt="aegis logo" className="h-full" />
     <ul class="hidden gap-12 items-center lg:flex">
         <MudText class="relative cursor-pointer text-base text-[var(--mud-palette-white)] font-medium 
@@ -60,3 +66,10 @@
         </MudButton>
     </MudNavMenu>
 </MudDrawer>
+
+<MudButton
+    class="fixed z-50 bottom-[1vh] right-[1vw] md:bottom-[10vh] md:right-[6vw] xl:right-[12vw] 2xl:right-[19.5vw] shadow-2xl rounded-full p-0"
+    @onclick="ChangeTheme">
+    <img src="@((ThemeService.IsDarkMode ? "/images/icons/dark-mode.png" : "/images/icons/light-mode.png"))"
+        class="w-full h-full cursor-pointer shadow-2xl rounded-full" alt="brightness icon" />
+</MudButton>
