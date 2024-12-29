@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
-    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./dist/app.bundle.css" />
+    <link rel="stylesheet" href="@Assets["_content/MudBlazor/MudBlazor.min.css"]" />
+    <link rel="stylesheet" href="@Assets["./dist/app.bundle.css"]" />
+    <link rel="stylesheet" href="@Assets["https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"]" />
+    <ImportMap />
     <link rel="icon" type="image/png" href="/images/icons/aegis-icon.svg" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
     <HeadOutlet @rendermode="InteractiveServer" />
 </head>
 
